@@ -1,0 +1,122 @@
+* {
+  font-family: "champagne", sans-serif;
+}
+
+#contactBanner {
+  background-image: url(../img/photo/banner-contact-photographe-mariage-oise.webp);
+  height: 90vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 15vh;
+}
+
+h1 {
+  font-size: 2.4em;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  text-align: center;
+  padding: 0.4em;
+  margin: 0;
+}
+
+#contactSpeechSection {
+  font-size: 1.4em;
+  margin: auto;
+  margin-bottom: 8vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+#contactSpeechSection h2, #contactSpeechSection #introSpeech {
+  text-align: center;
+  align-self: center;
+}
+
+#introSpeech {
+  font-size: 1.2em;
+}
+
+#homeContactSection {
+  font-family: "champagne";
+  margin: auto;
+  width: 80vw;
+  text-align: center;
+  font-size: 1.4em;
+  margin-bottom: 10vh;
+}
+
+#homeContactIntro {
+  font-size: 1.4em;
+}
+
+#homeContactForm {
+  font-size: 1.4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+fieldset {
+  border: none;
+  width: 100%;
+  display: flex;
+  margin-bottom: 1vh;
+  justify-content: space-between;
+  padding: 3vh;
+}
+fieldset div {
+  display: flex;
+  flex-direction: column;
+}
+fieldset input {
+  padding: 1vh;
+  font-size: 1.1em;
+  border-radius: 30px;
+}
+fieldset label {
+  margin-bottom: 1vh;
+}
+
+#names {
+  width: 80vw;
+}
+
+#phoneMail input, #locationDiv {
+  width: 30vw;
+}
+
+#ceremDiv {
+  justify-content: center;
+  gap: 2vw;
+}
+
+textarea {
+  font-family: "champagne";
+  border-radius: 30px;
+  padding: 1vh 1vw;
+  font-size: 1.1em;
+  width: 80vw;
+  max-height: 30vh;
+}
+
+button {
+  font-size: 1.1em;
+  padding: 1vh 2vw;
+  margin: auto;
+  border-radius: 10px;
+  background-color: white;
+}
+button:hover {
+  filter: invert(1);
+  transition: 0.5s;
+}
+
+/*# sourceMappingURL=contact.css.map */

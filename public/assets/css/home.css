@@ -1,0 +1,318 @@
+* {
+  font-family: "champagne", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+section {
+  margin: 10vh auto;
+}
+
+#introSection {
+  padding-top: 12vh;
+}
+
+#introBanner {
+  background-image: url(../img/photo/Header-top-photographe-mariage-hauts-de-france.webp);
+  height: 90vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 15vh;
+}
+
+h1 {
+  font-size: 2.4em;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  text-align: center;
+  padding: 0.4em;
+  margin: 0;
+}
+
+#introTextContainer {
+  width: 90vw;
+  margin: auto;
+  padding: 2%;
+  display: flex;
+  border: 1px solid black;
+  justify-content: space-between;
+}
+
+#introText {
+  width: 60%;
+  font-size: 1.4em;
+}
+#introText h3 {
+  font-size: 2em;
+}
+
+#hey {
+  font-family: "Lobster", cursive;
+  font-size: 2em;
+  transform: rotate(-10deg) translate(0px, -60px);
+}
+
+#introRight {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-around;
+  gap: 2vh;
+}
+
+#credo {
+  border-radius: 0 30px 0 30px;
+  padding: 0 2vw 1vh 2vw;
+  box-shadow: 5px 15px 8px rgba(0, 0, 0, 0.3);
+}
+#credo h4 {
+  margin-top: 1vh;
+  text-align: center;
+  font-size: 3em;
+}
+
+#instantSection {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5vh 0;
+  font-size: 1.4em;
+}
+
+#instantLeft {
+  padding: 1em;
+  width: 50%;
+  text-align: center;
+}
+#instantLeft h2 {
+  font-size: 3em;
+}
+#instantLeft h3 {
+  font-size: 2em;
+}
+
+#instantRight {
+  width: 50%;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+#instantRight img {
+  width: 30%;
+}
+#instantRight img:hover {
+  transform: scale(2.5) translate(-10%, 0);
+  transition: 0.6s;
+  border-radius: 10px;
+}
+
+.parallaxSection {
+  height: 70vh;
+  width: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+
+#paral1 {
+  background-image: url(../img/photo/banner-photographe-mariage-oise.webp);
+}
+
+#paral2 {
+  background-image: url(../img/photo/banner-photographe-mariage-oise-2.webp);
+}
+
+#speech {
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#speechLeft {
+  width: 40%;
+  border-right: 1px solid black;
+}
+#speechLeft img {
+  width: 60%;
+}
+
+#speechRight {
+  padding: 3vh;
+  width: 60%;
+}
+#speechRight p {
+  margin-bottom: 1vh;
+  font-size: 1.4em;
+}
+
+#homeAboutSection {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  gap: 10vw;
+}
+
+#homeAboutLeft {
+  width: 70%;
+  text-align: center;
+}
+
+#artistName {
+  font-size: 4em;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+#artistNameSubtitle {
+  margin-top: 0;
+}
+
+#homeAboutQuote {
+  font-size: 1.8em;
+}
+
+#homeAboutSpeech {
+  font-size: 1.4em;
+}
+
+#homeAboutRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+#face {
+  width: 50%;
+  margin-bottom: 3vh;
+  border-radius: 100%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#linkToPortfolio {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4em;
+}
+
+#toPortfolioLeft, #toPortofolioLeftBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#toPortfolioLeft a {
+  font-size: 3em;
+}
+
+#toPortfolioRight p {
+  margin-bottom: 0;
+  font-size: 1.2em;
+}
+
+#testimonials {
+  width: 80vw;
+  font-size: 1.4em;
+}
+#testimonials h2 {
+  font-size: 3em;
+  text-align: center;
+}
+
+.testimonialsContainer {
+  margin: 5vh auto;
+  display: flex;
+  gap: 5vh;
+}
+.testimonialsContainer img {
+  align-self: center;
+  width: 100%;
+  max-height: 400px;
+}
+
+.testimonialsText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonialsText h3 {
+  font-size: 1.2em;
+}
+
+#testimonialDiv2 {
+  flex-direction: row-reverse;
+}
+
+#booking {
+  width: 80vw;
+}
+#booking h2 {
+  text-align: center;
+  font-size: 3em;
+}
+#booking h2 span {
+  font-size: 1.2em;
+}
+
+.bookingNumber {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 3em;
+}
+
+.bookingStep {
+  display: flex;
+  justify-content: space-between;
+  margin: 3vh;
+  align-items: center;
+}
+.bookingStep img {
+  width: 30%;
+}
+
+#bookingStep2 {
+  flex-direction: row-reverse;
+}
+
+.stepContent {
+  width: 40%;
+  font-size: 1.4em;
+}
+
+.stepTitle {
+  font-size: 2em;
+}
+
+#toContact {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#homeContactIntro {
+  margin: auto;
+}
+
+/*# sourceMappingURL=home.css.map */
