@@ -19,6 +19,7 @@
             <div id="navLinks">
                 <ul id="menu">
                     <li class="menuItem"><a href="/controllers/dash/clients/dash-clients-listCtrl.php">Clients</a></li>
+                    <li class="menuItem"><a href="/controllers/dash/clients/dash-clients-gallery-listCtrl.php">Galeries</a></li>
                     <li class="menuItem"><a href="/controllers/dash/blog/dash-articles-listCtrl.php">Articles</a></li>
                     <li class="menuItem"><a href="/controllers/dash/dash-disconnectCtrl.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>Deconnexion</a></li>
                 </ul>
@@ -26,3 +27,9 @@
             <i id="burger" class="fa-solid fa-bars"></i>
         </nav>
     </header>
+
+    <section>
+        <div class="container mb-5 d-flex flex-column align-item-center justify-content-center">
+            <div class="row d-flex p-4 align-item-center justify-content-center">
+
+                <h1 class="col-12 text-center mt-0 mb-5"><?= $pageTitle ?? '' ?> -</h1>

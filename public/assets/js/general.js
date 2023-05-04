@@ -9,3 +9,8 @@ burger.addEventListener('click', () => {
 	burger.classList.toggle('fa-xmark')
 	// burger.style.transform = 'rotate(180deg)'
 })
+
+//editeur TinyMCE
+tinymce.init({
+	selector: '#articleContent',
+})
