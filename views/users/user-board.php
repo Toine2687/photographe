@@ -18,3 +18,11 @@
 
     </div>
 </section>
+
+<section class="gallery">
+    <?php
+    foreach (glob("*.txt") as $filename) {
+        echo "$filename occupe " . filesize($filename) . "\n";
+    }
+    ?>
+</section>
