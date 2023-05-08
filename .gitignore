@@ -1,3 +1,4 @@
 public/assets/img/photos/*
 public/assets/img/users/*
-*Pic*.jpg
+*.jpg
+.DS_Store
