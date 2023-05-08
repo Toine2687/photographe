@@ -21,7 +21,7 @@ img {
   flex-flow: column wrap;
   align-content: space-between;
   overflow: hidden;
-  height: 1500vw;
+  height: 1550vw;
   /* Re-order items into rows */
   /* Force new columns */
 }

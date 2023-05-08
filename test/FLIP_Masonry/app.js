@@ -61,7 +61,7 @@ function nextImage() {
 
 //fonction slide précédente
 function previousImage() {
-	currentImageIndex = (currentImageIndex + 1) % elImages.length
+	currentImageIndex = (currentImageIndex - 1) % elImages.length
 	showImage(currentImageIndex)
 }
 

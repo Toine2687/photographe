@@ -14,30 +14,31 @@
 <section id="homeContactSection">
     <form action="" id="homeContactForm">
         <fieldset id="namesFieldset">
-            <div id="namesDiv">
+            <div id="namesDiv" class="form-floating">
                 <label for="names">Vos prénoms et noms</label>
                 <input type="text" id="names" name="names" required>
             </div>
         </fieldset>
         <fieldset id="phoneMail">
-            <div id="mailDiv">
+            <div id="mailDiv" class="form-floating">
                 <label for="mail">Votre adresse mail</label>
                 <input type="email" name="mail" id="mail" required>
             </div>
-            <div id="phoneDiv">
+            <div id="phoneDiv" class="form-floating">
                 <label for="phone">Un numéro de téléphone</label>
                 <input type="tel" name="phone" id="phone" required>
             </div>
         </fieldset>
         <fieldset id="event">
-            <label for="eventDate">Date de l'évènement</label>
-            <input type="date" name="eventDate" id="eventDate" required>
+            <div class="form-floating">
+                <label for="eventDate">Date de l'évènement</label>
+                <input type="date" name="eventDate" id="eventDate" required>
             </div>
-            <div id="locationDiv">
+            <div id="locationDiv" class="form-floating">
                 <label for="">Lieu(x) de l'évènement</label>
                 <input type="text">
             </div>
-            <div id="guestsNumberDiv">
+            <div id="guestsNumberDiv" class="form-floating">
                 <label for="guestsNumber">Nombre de convives</label>
                 <input type="text" id="guestsNumber" name="guestsNumber">
             </div>
@@ -57,7 +58,7 @@
                 <label for="laic">Laïque</label>
             </div>
         </fieldset>
-        <div id="messageDiv">
+        <div id="messageDiv" class="form-floating">
             <label for="message">Votre message</label>
             <textarea name="message" id="message" cols="30" rows="10" required placeholder="Donnez-moi des détails ! Qu'est-ce que vous prévoyez pour le grand jour ? Quelles en seront les grandes étapes ? Qu'attendez-vous de votre photographe de mariage (à part de belles photos ;) ?"></textarea>
         </div>
