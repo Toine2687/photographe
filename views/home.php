@@ -1,6 +1,6 @@
 <section id="introSection">
     <div id="introBanner">
-        <h1>Photographe de mariage à Amiens</h1>
+        <h1 data-scroll data-scroll-speed="-8" data-scroll-direction="horizontal">Photographe de mariage à Amiens</h1>
     </div>
     <div id="introTextContainer">
         <div id="introText">
@@ -17,7 +17,7 @@
             <p>raconter en images les plus belles journées de gens heureux de s’aimer.</p>
         </div>
         <div id="introRight">
-            <div id="credo">
+            <div id="credo" data-scroll data-scroll-speed="-1">
                 <h4>CREDO</h4>
                 <div class="credoStep">
                     <p>L'INSTANT PRIME SUR TOUT LE RESTE.</p>
@@ -46,9 +46,9 @@
 
 <section id="instantSection">
     <div id="instantLeft">
-        <h2>L'INSTANT PRIME</h2>
+        <h2 data-scroll data-scroll-speed="4" data-scroll-direction="horizontal">L'INSTANT PRIME</h2>
         <p>Sur les poses, sur les clichés que l'on se fait du mariage, sur les signatures à la mairie, sur les codes et les photos figées.</p>
-        <h3>Place à la sincérité du réel</h3>
+        <h3 data-scroll data-scroll-speed="-4" data-scroll-direction="horizontal">Place à la sincérité du réel</h3>
     </div>
     <div id="instantRight">
         <!-- perspective  / cover sur hover  -->
@@ -64,7 +64,7 @@
     </div>
 </section>
 
-<section class="parallaxSection" id="paral1">
+<section class="parallaxSection" id="paral1" data-scroll data-scroll-speed="2">
     <!-- //fond en parallax -->
     <h2>Photographe de mariage à Amiens</h2>
 </section>
@@ -73,15 +73,15 @@
     <div id="speechLeft">
         <!-- ################# CHANGER TAILLES IMAGES ################### -->
         <div>
-            <img src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple.webp" alt="">
+            <img data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple.webp" alt="">
             <!-- <p class="speechKeyWords"></p> -->
         </div>
         <div>
-            <img src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-2.webp" alt="">
+            <img data-scroll data-scroll-speed="-3" data-scroll-direction="horizontal" src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-2.webp" alt="">
             <!-- <p class="speechKeyWords"></p> -->
         </div>
         <div>
-            <img src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-3.webp" alt="">
+            <img data-scroll data-scroll-speed="-4" data-scroll-direction="horizontal" src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-3.webp" alt="">
             <!-- <p class="speechKeyWords"></p> -->
         </div>
     </div>
@@ -106,7 +106,7 @@
         <p id="homeAboutSpeech">Une voie empruntée il y a plus de 10 ans et dont je ne cesse de découvrir les subtilités. Le temps passe et mes images deviennent plus dynamiques, plus proches de vous et plus audacieuses. Éternel insatisfait, je me concentre sur les réalisations à venir en les souhaitant toujours plus abouties, plus représentatives de votre couple et de votre journée.</p>
     </div>
     <div id="homeAboutRight">
-        <img id="face" src="../public/assets/img/photo/face.webp" alt="photo du photographe">
+        <img id="face" src="../public/assets/img/photo/face.webp" alt="photo du photographe" data-scroll data-scroll-speed="-1">
         <a class="callToActionBtn" href="">APPRENEZ-EN DAVANTAGE</a>
         <p>ou</p>
         <a class="callToActionBtn" href="">CONTACTEZ-MOI</a>
@@ -135,8 +135,8 @@
     <h2>TEMOIGNAGES</h2>
 
     <div class="testimonialsContainer">
-        <img src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise.webp" alt="photgraphe mariage couple oise">
-        <div class="testimonialsText">
+        <img data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise.webp" alt="photgraphe mariage couple oise">
+        <div data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" class="testimonialsText">
             <h3>Anne & Christophe</h3>
             <div>
                 <p class="testimonialsTitle">UN GRAND PROFESSIONNEL PLEIN DE TALENT, DISPONIBLE ET TRÈS COOL</p>
@@ -151,8 +151,8 @@
     </div>
 
     <div class="testimonialsContainer" id="testimonialDiv2">
-        <img src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-2.webp" alt="photgraphe mariage couple oise">
-        <div class="testimonialsText">
+        <img data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-2.webp" alt="photgraphe mariage couple oise">
+        <div data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" class="testimonialsText">
             <h3>Élise & Clément</h3>
             <div>
                 <p class="testimonialsTitle">UN VÉRITABLE PROFESSIONNEL</p>
@@ -167,8 +167,8 @@
         </div>
     </div>
     <div class="testimonialsContainer">
-        <img src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-3.webp" alt="photgraphe mariage couple oise">
-        <div class="testimonialsText">
+        <img data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-3.webp" alt="photgraphe mariage couple oise">
+        <div data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" class="testimonialsText">
             <h3>Laure & Guillaume</h3>
             <div>
                 <p class="testimonialsTitle">FABULEUX, INTENSE ET MAGNIFIQUE</p>

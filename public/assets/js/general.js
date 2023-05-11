@@ -1,8 +1,8 @@
 // Menu Burger
 const burger = document.getElementById('burger')
 const navLinks = document.getElementById('navLinks')
-console.log(burger)
-console.log(navLinks)
+// console.log(burger)
+// console.log(navLinks)
 burger.addEventListener('click', () => {
 	navLinks.classList.toggle('mobileMenu')
 	burger.classList.toggle('fa-bars')

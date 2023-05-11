@@ -10,8 +10,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../public/assets/css/base.css">
     <link rel="stylesheet" href="../../public/assets/css/style.css">
     <link rel="stylesheet" href="../../public/assets/css/contact.css">
+
     <?php
     if (isset($style)) {
         echo '<link rel="stylesheet" href="../../public/assets/css/' . $style . '.css">';
@@ -19,7 +23,8 @@
     ?>
 </head>
 
-<body>
+<body data-scroll-container>
     <header>
         <?php include __DIR__ . '/navBar.php'; ?>
     </header>
+    <div data-scroll-section>

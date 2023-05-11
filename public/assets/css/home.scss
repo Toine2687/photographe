@@ -1,20 +1,21 @@
-*{
+* {
     font-family: 'champagne', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
-section{
+section {
     margin: 10vh auto;
 }
 
-#introSection{
+#introSection {
     padding-top: 12vh;
 }
-#introBanner{
+
+#introBanner {
     background-image: url(../img/photo/Header-top-photographe-mariage-hauts-de-france.webp);
     height: 90vh;
     width: 100vw;
@@ -28,34 +29,43 @@ section{
     justify-content: flex-end;
     margin-bottom: 15vh;
 }
-h1{
+
+h1 {
     font-size: 2.4em;
     background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.7);
-    width: 100%;
+    width: 300%;
     text-align: center;
     padding: .4em;
     margin: 0;
 }
-#introTextContainer{
+
+#introTextContainer {
     width: 90vw;
     margin: auto;
     padding: 2%;
     display: flex;
     border: 1px solid black;
     justify-content: space-between;
+    overflow: hidden;
 }
-#introText{
+
+#introText {
     width: 60%;
-    h3{font-size: 2em;
+
+    h3 {
+        font-size: 2em;
     }
+
     font-size: 1.4em;
 }
-#hey{
+
+#hey {
     font-family: 'Lobster', cursive;
     font-size: 2em;
     transform: rotate(-10deg) translate(0px, -60px);
 }
-#introRight{
+
+#introRight {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -63,11 +73,13 @@ h1{
     justify-content: space-around;
     gap: 2vh;
 }
-#credo{
+
+#credo {
     border-radius: 0 30px 0 30px;
     padding: 0 2vw 1vh 2vw;
     box-shadow: 5px 15px 8px rgba($color: #000000, $alpha: 0.3);
-    h4{
+
+    h4 {
         margin-top: 1vh;
         text-align: center;
         font-size: 3em;
@@ -75,7 +87,7 @@ h1{
 }
 
 
-#instantSection{
+#instantSection {
     width: 80vw;
     display: flex;
     align-items: center;
@@ -83,26 +95,32 @@ h1{
     padding: 5vh 0;
     font-size: 1.4em;
 }
-#instantLeft{
+
+#instantLeft {
     padding: 1em;
     width: 50%;
     text-align: center;
-    h2{
+
+    h2 {
         font-size: 3em;
     }
-    h3{
+
+    h3 {
         font-size: 2em;
 
     }
 }
-#instantRight{
+
+#instantRight {
     width: 50%;
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
-    img{
+
+    img {
         width: 30%;
-        &:hover{
+
+        &:hover {
             transform: scale(2.5) translate(-10%, 0);
             transition: .6s;
             border-radius: 10px;
@@ -110,12 +128,13 @@ h1{
     }
 }
 
-.parallaxSection{
+.parallaxSection {
     height: 70vh;
     width: 100vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: local;
     //-----------
     display: flex;
     flex-direction: column;
@@ -124,71 +143,83 @@ h1{
     margin-top: 15vh;
     margin-bottom: 15vh;
 }
-#paral1{
+
+#paral1 {
     background-image: url(../img/photo/banner-photographe-mariage-oise.webp);
+
 }
-#paral2{
+
+#paral2 {
     background-image: url(../img/photo/banner-photographe-mariage-oise-2.webp);
 }
 
 
-#speech{
+#speech {
     width: 70vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#speechLeft{
+#speechLeft {
     width: 40%;
     border-right: 1px solid black;
-    img{
+
+    img {
         width: 60%;
     }
 }
 
-#speechRight{
+#speechRight {
     padding: 3vh;
     width: 60%;
-    p{
+
+    p {
         margin-bottom: 1vh;
         font-size: 1.4em;
     }
 }
 
 
-#homeAboutSection{
+#homeAboutSection {
     width: 80vw;
     display: flex;
-    justify-content: center ;
+    justify-content: center;
     gap: 10vw;
 }
-#homeAboutLeft{
+
+#homeAboutLeft {
     width: 70%;
     text-align: center;
 }
-#artistName{
+
+#artistName {
     font-size: 4em;
     margin-bottom: 0;
     margin-top: 0;
 }
-#artistNameSubtitle{
+
+#artistNameSubtitle {
     margin-top: 0;
 }
-#homeAboutQuote{
+
+#homeAboutQuote {
     font-size: 1.8em;
 }
-#homeAboutSpeech{
+
+#homeAboutSpeech {
     font-size: 1.4em;
 }
-#homeAboutRight{
+
+#homeAboutRight {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 30%;
 }
-#face{
+
+#face {
     width: 50%;
     margin-bottom: 3vh;
     border-radius: 100%;
@@ -197,104 +228,120 @@ h1{
 
 // ---------- vers Portofolio
 
-#linkToPortfolio{
+#linkToPortfolio {
     width: 90vw;
     display: flex;
     justify-content: space-between;
     font-size: 1.4em;
 }
-#toPortfolioLeft, #toPortofolioLeftBottom{
+
+#toPortfolioLeft,
+#toPortofolioLeftBottom {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 }
-#toPortfolioLeft a{
+
+#toPortfolioLeft a {
     font-size: 3em;
 }
-#toPortfolioRight p{
+
+#toPortfolioRight p {
     margin-bottom: 0;
     font-size: 1.2em;
 }
 
 // ---------- Témoignages
 
-#testimonials{
+#testimonials {
     width: 80vw;
     font-size: 1.4em;
-    h2{
+
+    h2 {
         font-size: 3em;
         text-align: center;
     }
 }
 
-.testimonialsContainer{
+.testimonialsContainer {
     margin: 5vh auto;
     display: flex;
     gap: 5vh;
-    img{
+
+    img {
         align-self: center;
         width: 100%;
         max-height: 400px;
     }
 }
-.testimonialsText{
+
+.testimonialsText {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    h3{
+
+    h3 {
         font-size: 1.2em;
     }
 }
 
-#testimonialDiv2{
+#testimonialDiv2 {
     flex-direction: row-reverse;
 }
 
 // ---------- Booking
 
-#booking{
+#booking {
     width: 80vw;
-    h2{
+
+    h2 {
         text-align: center;
         font-size: 3em;
-        span{
+
+        span {
             font-size: 1.2em;
         }
     }
 }
-.bookingNumber{
+
+.bookingNumber {
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: 3em;
 }
-.bookingStep{
+
+.bookingStep {
     display: flex;
     justify-content: space-between;
     margin: 3vh;
     align-items: center;
-    img{
+
+    img {
         width: 30%;
     }
 }
-#bookingStep2{
+
+#bookingStep2 {
     flex-direction: row-reverse;
 }
-.stepContent{
+
+.stepContent {
     width: 40%;
     font-size: 1.4em;
 }
-.stepTitle{
+
+.stepTitle {
     font-size: 2em;
 }
 
-#toContact{
+#toContact {
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-#homeContactIntro{
+#homeContactIntro {
     margin: auto;
 }

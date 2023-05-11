@@ -1,3 +1,4 @@
+</div>
 <footer>
     <img src="../../public/assets/img/logo_APP.png" alt="logo photographe mariage amiens">
     <div id="networks">
@@ -36,6 +37,12 @@
 
 <!-- ============== SCRIPTS =============== -->
 
+<!-- locomotive -->
+<script src="/public/assets/js/locomotive-scroll.min.js"></script>
+<script src="/public/assets/js/loco.js"></script>
+<!-- /locomotive -->
+
+<!-- <script src="../../public/assets/js/loco.js" type="module"></script> -->
 <script src="https://kit.fontawesome.com/9e1c3c59ca.js" crossorigin="anonymous"></script>
 <script src="../../public/assets/js/app.js"></script>
 <script src="../../public/assets/js/general.js"></script>
