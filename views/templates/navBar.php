@@ -5,7 +5,7 @@
         <ul id="menu">
             <li class="menuItem"><a href="/controllers/portfolioCtrl.php">Portfolio</a></li>
             <li class="menuItem"><a href="/controllers/photographeCtrl.php">Photographe</a></li>
-            <li class="menuItem"><a href="/controllers/blogCtrl.php">Journal</a></li>
+            <li class="menuItem"><a href="/controllers/blog/blog-articlesCtrl.php">Journal</a></li>
             <li class="menuItem"><a href="/controllers/contactCtrl.php">Contact</a></li>
             <li class="menuItem"><a href="/controllers/user/user-loginCtrl.php">Clients</a></li>
         </ul>

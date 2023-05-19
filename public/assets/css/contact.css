@@ -35,7 +35,8 @@ h1 {
   justify-content: center;
   align-items: start;
 }
-#contactSpeechSection h2, #contactSpeechSection #introSpeech {
+#contactSpeechSection h2,
+#contactSpeechSection #introSpeech {
   text-align: center;
   align-self: center;
 }
@@ -71,6 +72,7 @@ fieldset {
   margin-bottom: 1vh;
   justify-content: space-between;
   padding: 3vh;
+  flex-wrap: wrap;
 }
 fieldset div {
   display: flex;
@@ -93,8 +95,18 @@ fieldset label {
   width: 80vw;
 }
 
-#phoneMail input, #locationDiv {
+#phoneMail input,
+#locationDiv {
   width: 30vw;
+}
+
+#event {
+  display: flex;
+  flex-wrap: wrap;
+}
+#event input {
+  width: 80%;
+  margin: 1vh auto;
 }
 
 #ceremDiv {

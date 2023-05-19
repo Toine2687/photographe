@@ -1,3 +1,5 @@
+@import "style.scss";
+
 * {
     font-family: 'champagne', sans-serif;
 }
@@ -168,6 +170,8 @@ h1 {
     img {
         width: 60%;
     }
+
+
 }
 
 #speechRight {
@@ -179,6 +183,18 @@ h1 {
         font-size: 1.4em;
     }
 }
+
+@media #{$tablet-top} {
+    #speechLeft {
+        display: none;
+    }
+
+    #speechRight {
+        width: 100%;
+    }
+}
+
+
 
 
 #homeAboutSection {
@@ -252,6 +268,21 @@ h1 {
     font-size: 1.2em;
 }
 
+@media #{$tablet-top} {
+    #linkToPortfolio {
+        flex-wrap: wrap;
+        margin: auto;
+
+        img {
+            width: 100%;
+        }
+
+        a {
+            font-size: 1.2em;
+        }
+    }
+}
+
 // ---------- Témoignages
 
 #testimonials {
@@ -283,6 +314,19 @@ h1 {
 
     h3 {
         font-size: 1.2em;
+    }
+}
+
+@media #{$tablet-top} {
+    .testimonialsContainer {
+        display: flex;
+        flex-wrap: wrap;
+
+        img {
+            width: 80%;
+            margin: auto;
+            object-fit: cover;
+        }
     }
 }
 

@@ -73,7 +73,7 @@
     <div id="speechLeft">
         <!-- ################# CHANGER TAILLES IMAGES ################### -->
         <div>
-            <img data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple.webp" alt="">
+            <img src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple.webp" alt="">
             <!-- <p class="speechKeyWords"></p> -->
         </div>
         <div>
@@ -124,19 +124,15 @@
     </div>
     <div id="toPortfolioRight">
         <img src="/public/assets/img/photo/toPortfolio-photographe-mariage-oise.webp" alt="portfolio photographe mariage">
-        <a href="">
-            <p> Antoine Petit</p>
-            <p>PHOTOGRAPHE MARIAGE AMIENS</p>
-        </a>
     </div>
 </section>
 
 <section id="testimonials">
-    <h2>TEMOIGNAGES</h2>
+    <h2 data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal">TEMOIGNAGES</h2>
 
     <div class="testimonialsContainer">
-        <img data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise.webp" alt="photgraphe mariage couple oise">
-        <div data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" class="testimonialsText">
+        <img src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise.webp" alt="photgraphe mariage couple oise">
+        <div class="testimonialsText">
             <h3>Anne & Christophe</h3>
             <div>
                 <p class="testimonialsTitle">UN GRAND PROFESSIONNEL PLEIN DE TALENT, DISPONIBLE ET TRÈS COOL</p>
@@ -151,8 +147,8 @@
     </div>
 
     <div class="testimonialsContainer" id="testimonialDiv2">
-        <img data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-2.webp" alt="photgraphe mariage couple oise">
-        <div data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" class="testimonialsText">
+        <img src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-2.webp" alt="photgraphe mariage couple oise">
+        <div class="testimonialsText">
             <h3>Élise & Clément</h3>
             <div>
                 <p class="testimonialsTitle">UN VÉRITABLE PROFESSIONNEL</p>
@@ -167,8 +163,8 @@
         </div>
     </div>
     <div class="testimonialsContainer">
-        <img data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-3.webp" alt="photgraphe mariage couple oise">
-        <div data-scroll data-scroll-speed="2" data-scroll-direction="horizontal" class="testimonialsText">
+        <img src="/public/assets/img/photo/testiSection/testi-photographe-mariage-oise-3.webp" alt="photgraphe mariage couple oise">
+        <div class="testimonialsText">
             <h3>Laure & Guillaume</h3>
             <div>
                 <p class="testimonialsTitle">FABULEUX, INTENSE ET MAGNIFIQUE</p>
@@ -183,23 +179,13 @@
 </section>
 </section>
 
-<!-- <section id="faq">
-    <h2>Comment puis-je vous aider ?</h2>
-    <div id="faqContainer">
-        <div class="faqElement">
-            <h4 class="faqElementTitle"></h4>
-            <p class="faqElementContent"></p>
-        </div>
-    </div>
-</section> -->
-
 <section class="parallaxSection" id="paral2">
     <!-- //fond en parallax -->
     <h2>Photographe de mariage à Amiens</h2>
 </section>
 
 <section id="booking">
-    <h2>Comment<br><span>RESERVER ?</span></h2>
+    <h2 data-scroll data-scroll-speed="2" data-scroll-direction="horizontal">Comment<br><span>RESERVER ?</span></h2>
     <div class="bookingStep">
         <p class="bookingNumber">01</p>
         <img src="/public/assets/img/photo/bookingSection/booking-photographe-mariage-oise.webp" alt="photographie de mariage au Château de Vauchelles">
@@ -228,15 +214,5 @@
             <p class="stepTitle">Réserver votre date</p>
             <p class="stepText">Un contrat aussi pro que rébarbatif nous attend (youpi!). Ce n'est pas la partie la plus fun mais elle est nécessaire pour établir sainement les bases de notre collaboration. Après signature du contrat et versement d'un acompte, votre date est officiellement réservée et je suis à votre entière disposition pour vous accompagner avant, pendant et après votre grand jour.</p>
         </div>
-    </div>
-</section>
-
-<section id="toContact">
-    <div id="homeContactIntro">
-        <p>Vous désirez en savoir plus ?</p>
-        <h2>CONTACTEZ MOI MAINTENANT</h2>
-        <p>Dévoilez-moi qui vous êtes, ce que vous aimez,
-            ce que vous prévoyez pour votre mariage.
-            Donnez-moi des détails !</p>
     </div>
 </section>

@@ -1,5 +1,3 @@
-public/assets/img/photos/*
-public/assets/img/users/*
-public/assets/img/users
-*.jpg
-.DS_Store
+public/assets/img/photo/
+public/assets/img/users/
+*.DS_Store

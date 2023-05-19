@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="../../public/assets/css/base.css">
     <link rel="stylesheet" href="../../public/assets/css/style.css">
     <link rel="stylesheet" href="../../public/assets/css/contact.css">

@@ -1,8 +1,9 @@
-*{
+* {
     font-family: 'champagne', sans-serif;
 }
+
 //page contact
-#contactBanner{
+#contactBanner {
     background-image: url(../img/photo/banner-contact-photographe-mariage-oise.webp);
     height: 90vh;
     width: 100vw;
@@ -16,7 +17,8 @@
     justify-content: flex-end;
     margin-bottom: 15vh;
 }
-h1{
+
+h1 {
     font-size: 2.4em;
     background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.7);
     width: 100%;
@@ -24,7 +26,8 @@ h1{
     padding: .4em;
     margin: 0;
 }
-#contactSpeechSection{
+
+#contactSpeechSection {
     font-size: 1.4em;
     margin: auto;
     margin-bottom: 8vh;
@@ -33,18 +36,21 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    h2, #introSpeech{
+
+    h2,
+    #introSpeech {
         text-align: center;
         align-self: center;
     }
 }
-#introSpeech{
+
+#introSpeech {
     font-size: 1.2em;
 }
 
 
 //formulaire uniquement
-#homeContactSection{
+#homeContactSection {
     font-family: 'champagne';
     margin: auto;
     width: 80vw;
@@ -52,27 +58,33 @@ h1{
     font-size: 1.4em;
     margin-bottom: 10vh;
 }
-#homeContactIntro{
+
+#homeContactIntro {
     font-size: 1.4em;
 }
-#homeContactForm{
+
+#homeContactForm {
     font-size: 1.2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-fieldset{
+
+fieldset {
     border: none;
     width: 100%;
     display: flex;
     margin-bottom: 1vh;
     justify-content: space-between;
     padding: 3vh;
-    div{
+    flex-wrap: wrap;
+
+    div {
         display: flex;
         flex-direction: column;
     }
-    input{
+
+    input {
         padding: 1vh 1vw;
         font-size: .9em;
         border-radius: 10px;
@@ -81,27 +93,46 @@ fieldset{
         border-top: 1px solid black;
         box-shadow: 1px 2px 2px rgba($color: #000000, $alpha: 0.5);
     }
-    label{
+
+    label {
         margin-bottom: 1vh;
     }
 }
-#names{
+
+#names {
     width: 80vw;
 }
-#phoneMail input, #locationDiv{
+
+#phoneMail input,
+#locationDiv {
     width: 30vw;
 }
-#ceremDiv{
+
+#event {
+    display: flex;
+    flex-wrap: wrap;
+
+    input {
+        width: 80%;
+        margin: 1vh auto;
+    }
+}
+
+
+#ceremDiv {
     justify-content: center;
     gap: 2vw;
-    input{
+
+    input {
         box-shadow: none;
         height: .8em;
         width: .8em;
         margin: 1vh auto;
     }
 }
-textarea{
+
+
+textarea {
     font-family: 'champagne';
     padding: 1vh 1vw;
     width: 80vw;
@@ -114,13 +145,15 @@ textarea{
     border-top: 1px solid black;
     box-shadow: 1px 2px 4px rgba($color: #000000, $alpha: 0.2);
 }
-button{
+
+button {
     font-size: 1.1em;
     padding: 1vh 2vw;
     margin: auto;
     border-radius: 10px;
     background-color: white;
-    &:hover{
+
+    &:hover {
         filter: invert(1);
         transition: .5s;
     }

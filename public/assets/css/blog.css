@@ -20,7 +20,7 @@ nav {
   background-color: rgba(255, 255, 255, 0.9);
 }
 nav #logo {
-  width: 30%;
+  width: 40%;
 }
 nav #navLinks {
   margin-top: 0;
@@ -54,9 +54,6 @@ nav .fa-solid {
   nav {
     background-color: white;
     padding: 0;
-  }
-  nav #logo {
-    width: 20%;
   }
   nav #navLinks {
     transform: translate(-100%);
@@ -175,4 +172,67 @@ footer a:hover {
   font-size: 0.8em;
 }
 
-/*# sourceMappingURL=style.css.map */
+section {
+  margin-top: 25vh;
+}
+
+.listedArticle {
+  margin: 10vh 5vw;
+  display: flex;
+  width: 90vw;
+  height: 30vh;
+}
+
+.articleText {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  padding: 0 5vw;
+}
+.articleText a {
+  display: flex;
+  align-self: flex-end;
+  justify-self: end;
+  color: black;
+  text-decoration: none;
+}
+.articleText a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .listedArticle {
+    width: 95vw;
+    justify-content: center;
+    height: 80vh;
+    margin: 5vh auto;
+    flex-wrap: wrap;
+  }
+  .listedArticle img {
+    height: 35vh;
+    width: 100%;
+    object-fit: cover;
+  }
+  .listedArticle .articleText {
+    height: 35vh;
+    width: 100%;
+  }
+}
+.fullArticle {
+  margin: auto;
+  width: 80vw;
+}
+.fullArticle img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.fullArticleImg {
+  max-height: 50vh;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/*# sourceMappingURL=blog.css.map */

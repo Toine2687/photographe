@@ -21,6 +21,7 @@
                     <li class="menuItem"><a href="/controllers/dash/clients/dash-clients-listCtrl.php">Clients</a></li>
                     <li class="menuItem"><a href="/controllers/dash/clients/dash-clients-gallery-listCtrl.php">Galeries</a></li>
                     <li class="menuItem"><a href="/controllers/dash/blog/dash-articles-listCtrl.php">Articles</a></li>
+                    <li class="menuItem"><a href="/controllers/dash/packs/dash-packs-listCtrl.php">Formules</a></li>
                     <li class="menuItem"><a href="/controllers/dash/dash-disconnectCtrl.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>Deconnexion</a></li>
                 </ul>
             </div>

@@ -1,4 +1,11 @@
 <section id="homeContactSection">
+
+    <div>
+        <p> Vous désirez en savoir plus ? </p>
+        <h3>Contactez moi maintenant</h3>
+        <p>Complétez ce formulaire en me fournissant un maximum de détails, je m’engage à vous répondre au plus vite.</p>
+    </div>
+
     <form action="" id="homeContactForm">
         <fieldset id="namesFieldset">
             <div id="namesDiv">
