@@ -13,6 +13,18 @@ h2 {
   font-size: 1.5em;
 }
 
+tr a {
+  font-size: 1em;
+}
+
+tr:hover {
+  background-color: rgb(210, 210, 210);
+  font-weight: bolder;
+}
+tr:hover a {
+  text-decoration-line: underline;
+}
+
 nav img {
   width: 8vw;
 }
@@ -45,6 +57,14 @@ section {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+#adminCheckbox {
+  justify-content: center;
+}
+
+#userProfilePic {
+  height: 20%;
 }
 
 /*# sourceMappingURL=dash.css.map */

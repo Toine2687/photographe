@@ -73,15 +73,15 @@
     <div id="speechLeft">
         <!-- ################# CHANGER TAILLES IMAGES ################### -->
         <div>
-            <img src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple.webp" alt="">
+            <img src="/public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple.webp" alt="">
             <!-- <p class="speechKeyWords"></p> -->
         </div>
         <div>
-            <img data-scroll data-scroll-speed="-3" data-scroll-direction="horizontal" src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-2.webp" alt="">
+            <img data-scroll data-scroll-speed="-3" data-scroll-direction="horizontal" src="/public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-2.webp" alt="">
             <!-- <p class="speechKeyWords"></p> -->
         </div>
         <div>
-            <img data-scroll data-scroll-speed="-4" data-scroll-direction="horizontal" src="../public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-3.webp" alt="">
+            <img data-scroll data-scroll-speed="-4" data-scroll-direction="horizontal" src="/public/assets/img/photo/speechSection/speech-photographe-mariage-hauts-de-france-couple-3.webp" alt="">
             <!-- <p class="speechKeyWords"></p> -->
         </div>
     </div>
@@ -106,7 +106,7 @@
         <p id="homeAboutSpeech">Une voie empruntée il y a plus de 10 ans et dont je ne cesse de découvrir les subtilités. Le temps passe et mes images deviennent plus dynamiques, plus proches de vous et plus audacieuses. Éternel insatisfait, je me concentre sur les réalisations à venir en les souhaitant toujours plus abouties, plus représentatives de votre couple et de votre journée.</p>
     </div>
     <div id="homeAboutRight">
-        <img id="face" src="../public/assets/img/photo/face.webp" alt="photo du photographe" data-scroll data-scroll-speed="-1">
+        <img id="face" src="/public/assets/img/photo/face.webp" alt="photo du photographe" data-scroll data-scroll-speed="-1">
         <a class="callToActionBtn" href="">APPRENEZ-EN DAVANTAGE</a>
         <p>ou</p>
         <a class="callToActionBtn" href="">CONTACTEZ-MOI</a>

@@ -1,5 +1,5 @@
 <footer>
-    <img src="../../public/assets/img/logo_APP.png" alt="logo photographe mariage amiens">
+    <img src="/public/assets/img/logo_APP.png" alt="logo photographe mariage amiens">
     <div id="networks">
         <a href="https://www.facebook.com/AntoinePetit.Photographie/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/antoinepetit.photo/" target="_blank"><i class="fa-brands fa-instagram"></i></i></a>
@@ -12,7 +12,7 @@
         <ul id="menuBot">
             <li class="menuItem"><a href="/controllers/portfolioCtrl.php">Portfolio</a></li>
             <li class="menuItem"><a href="/controllers/photographeCtrl.php">Photographe</a></li>
-            <li class="menuItem"><a href="/controllers/blogCtrl.php">Journal</a></li>
+            <li class="menuItem"><a href="/controllers/articlesCtrl.php">Journal</a></li>
             <li class="menuItem"><a href="/controllers/contactCtrl.php">Contact</a></li>
             <li class="menuItem"><a href="/controllers/user/user-disconnectCtrl.php">(Dé)Connexion</a></li>
 
@@ -39,8 +39,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/9e1c3c59ca.js" crossorigin="anonymous"></script>
-<script src="../../public/assets/js/app.js"></script>
-<script src="../../public/assets/js/general.js"></script>
+<script src="/public/assets/js/app.js"></script>
+<script src="/public/assets/js/general.js"></script>
 
 </body>
 

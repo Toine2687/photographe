@@ -12,7 +12,7 @@ burger.addEventListener('click', () => {
 
 //editeur TinyMCE
 tinymce.init({
-	selector: '#articleContent',
+	selector: '#content',
 	plugins: 'image',
 	toolbar: 'image',
 	image_list: [
