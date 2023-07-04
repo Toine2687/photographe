@@ -1,0 +1,123 @@
+---------------------------- JWT : JSON WEB TOKEN-------------------------------
+
+controlleur de validation en lien (dans le lien : $SERVER[REQUEST SCHEME]:// $SERVER[HTTP HOST]/controllers/etc.php?mail=$mail)dans le mail de confirmation
+active le validated_at dans la classe user
+ créer une méthode statique avec le mail comme argument
+
+ genre => User::validate($mail)
+
+ la méthode :
+ public static function validate(){
+    $sql : update 'users' SET 'validated_at' = NOW() WHERE 'users'.'mail' = :mail AND `validated_at` IS NULL;
+    cnx / prepare / bindvalue / 
+    if execute {
+        return ($sth->rowCount > 0) ? true : false;
+    }
+ } renvoyer sur une page de validation (et son controlleur)
+        Message de session
+
+
+SAUF QUE ==> MAIL EN CLAIR DANS LE PARAMETRE D'URL !!
+DONC TOKEN
+
+Découpé en 3 parties :
+Header avec algo et type (osef) (objet)
+Payload avec infos (ici le mail) (objet)
+Signature générée à partir des 2 premieres
+
+
+-------------> RETROUVER TUTO BUILD A JWT SUR DEV.TO
+https://dev.to/robdwaller/how-to-create-a-json-web-token-using-php-3gml
+
+créer class JWT
+Dans le controlleur => appeler la méthode et stocker le jwt => $jwt = JWT::set($mail);
+
+La classe (à faire dans helpers => JWT.PHP) :
+
+class JWT {
+    public static function set(string $mail){
+        // -------HEADER
+        $header = json encode {type / algo}
+        $base64UrlHeader =  encodage en base 64($header) et remplacement des caractères problématiques
+        // -------PAYLOAD
+        $payload => json encode(['email'=>$email]);
+        $base64UrlPayload =  encodage en base 64($payload) et remplacement des caractères problématiques
+        // -------SIGNATURE
+        hashage avec concaténation des header et payload + clef
+        $signature  = hash_hmac('algo', $base64UrlHeader .'.'. $base64UrlPayload, 'clef en constante dans config.php', true);
+        --------et on re base 64 la signature
+        $base64UrlSignature =  encodage en base 64($signature) et remplacement des caractères problématiques
+        // -------ETAPE FINALE
+        ---Concaténation des 3 éléments
+        $jwt = $base64UrlHeader.'.'.base64UrlPayload.'.'.base64UrlSignature;
+
+        (à tester sur jwt.io)
+
+        return $jwt;
+    }
+}
+
+
+
+VALIDATION =============================
+
+1-  récupérer et stocker le $jwt en get (sans filtre)
+2-  $user = JWT::get($jwt)
+3 - if ($user){
+    $isValidated = User::validate($user->email)
+        if ($isValidated){
+            message : Tout est bon !!
+        } else {
+            message : nique
+        }
+
+}
+
+
+ méthode =>
+    public static function get(string $jwt){
+        ------sens inverse de la méthode set()
+        
+        ------découpage de la chaine en 3 parties via la fonction PHP explode() => retourne un tableau
+        $jwt_array = explode('.', $jwt, 3)
+        
+        ------on crée 3 variables relatives aux éléments du tableau:
+        $header = $jwt_array[0];
+        $payload = $jwt_array[1];
+        $signature = $jwt_array[2];
+
+        -----on re-remplace les caractères
+        $headerReplaced = str_replace([trucs remplacés], [trucs d'origine], $header);
+        
+        -----on décode la base
+        $headerDecoded = base64_decode($headerReplaced);
+
+        -----on revient au JSON
+        $headerJSON = json_decode($headerDecoded);
+
+        -----------------------------------------------------------------
+        ------------------------PAREIL AVEC LE PAYLOAD-------------------
+        --------------re-remplace / décodage / retour au JSON------------
+
+        ------SIGNATURE
+        il faut que la signature soit égale à la concat des header et payload ==> dans ce cas c'est OK
+        
+        ----Re-Génération de la signature et comparaison avec celle reçue
+        ----On re-crypte la signature avec les header et payloads reçus
+        ---------EXACTEMENT LES MEME ETAPES QU'à L'ENVOI MAIS AVEC LES HEADER ET PAYLOAD REçUS------------
+
+        $signature  = hash_hmac('algo', $header .'.'. $payload, 'clef secrete', true);
+        $SignatureFinale =  encodage en base 64($signature) et remplacement des caractères problématiques
+
+        ---On compare la signature originale à celle recréée avec les header et payloads reçus, si elles sont égales, on est bons !
+        ---Condition : 
+
+        if($SignatureFinale == $base64UrlSignature){
+            return $payloadJSON (où on trouve el famoso $mail sous une forme de propriété d'objet stdClass)
+            }
+        else {
+            return false;
+            }
+        }
+        }
+    }

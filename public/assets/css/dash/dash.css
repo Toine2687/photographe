@@ -67,4 +67,8 @@ section {
   height: 20%;
 }
 
+.hidden {
+  display: none;
+}
+
 /*# sourceMappingURL=dash.css.map */

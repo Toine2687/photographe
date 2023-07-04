@@ -1,14 +1,22 @@
 // Menu Burger
 const burger = document.getElementById('burger')
 const navLinks = document.getElementById('navLinks')
-// console.log(burger)
-// console.log(navLinks)
 burger.addEventListener('click', () => {
 	navLinks.classList.toggle('mobileMenu')
 	burger.classList.toggle('fa-bars')
 	burger.classList.toggle('fa-xmark')
-	// burger.style.transform = 'rotate(180deg)'
 })
+
+//afficheur de champs d'update sur le dash
+const modifyPic = document.getElementById('modifyPic')
+const updateSection = document.getElementById('update')
+
+if (typeof (modifyPic) != 'undefined' && modifyPic != null) {
+	modifyPic.addEventListener('click', () => {
+		updateSection.classList.toggle('hidden')
+	})
+}
+
 
 //editeur TinyMCE
 tinymce.init({
@@ -20,3 +28,4 @@ tinymce.init({
 		{ title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif' }
 	]
 })
+

@@ -1,64 +1,30 @@
-<!-- <div class="d-flex justify-content-between col-10">
-    <p>Titre</p>
-    <p>Date Shooting</p>
-    <p>Client</p>
-    <p>#images</p>
-    <p>Suppr.</p>
-</div> -->
-<ul class="list-group col-12 col-md-10" id="galleriesList">
-    <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-            <p class="galleryTitle">Machin & Truc</p>
-            <p class="shootingDate">2023-05-28</p>
-            <p class="clientName">Machin Dupont</p>
-            <p class="picturesNb">450</p>
-            <p><a href=""><i class="fa-solid fa-eye"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-pen-to-square"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-trash"></i></a></p>
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-            <p class="galleryTitle">Machin & Truc</p>
-            <p class="shootingDate">2023-05-28</p>
-            <p class="clientName">Machin Dupont</p>
-            <p class="picturesNb">450</p>
-            <p><a href=""><i class="fa-solid fa-eye"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-pen-to-square"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-trash"></i></a></p>
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-            <p class="galleryTitle">Machin & Truc</p>
-            <p class="shootingDate">2023-05-28</p>
-            <p class="clientName">Machin Dupont</p>
-            <p class="picturesNb">450</p>
-            <p><a href=""><i class="fa-solid fa-eye"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-pen-to-square"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-trash"></i></a></p>
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-            <p class="galleryTitle">Machin & Truc</p>
-            <p class="shootingDate">2023-05-28</p>
-            <p class="clientName">Machin Dupont</p>
-            <p class="picturesNb">450</p>
-            <p><a href=""><i class="fa-solid fa-eye"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-pen-to-square"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-trash"></i></a></p>
-        </div>
-    </li>
-    <li class="list-group-item">
-        <div class="d-flex justify-content-between">
-            <p class="galleryTitle">Machin & Truc</p>
-            <p class="shootingDate">2023-05-28</p>
-            <p class="clientName">Machin Dupont</p>
-            <p class="picturesNb">450</p>
-            <p><a href=""><i class="fa-solid fa-eye"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-pen-to-square"></i></a></p>
-            <p><a href=""><i class="fa-solid fa-trash"></i></a></p>
-        </div>
-    </li>
-</ul>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Client</th>
+            <th scope="col">Date de shooting</th>
+            <th scope="col">Date d'envoi</th>
+
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($galleries as $gallery) {
+        ?>
+            <tr>
+                <th scope="row"><?= $gallery->galleries_id ?></th>
+                <td><?= $gallery->title ?></td>
+                <td><?= $gallery->firstname . ' ' . $gallery->lastname ?></td>
+                <td><?= date('d m Y',  strtotime($gallery->created_at))  ?></td>
+                <td><?= ($gallery->sent_at != NULL) ? date('d m Y',  strtotime($gallery->sent_at)) : 'A envoyer'; ?></td>
+                <td><a href="/controllers/dash/galleries/detailCtrl.php?id=<?= $gallery->galleries_id ?>"><i class="fa-solid fa-eye"></i></a></td>
+                <td><a href="/controllers/dash/galleries/deleteCtrl.php?id=<?= $gallery->galleries_id ?>&delete=true"><i class="fa-solid fa-trash"></i></a></td>
+            </tr>
+        <?php }
+        ?>
+    </tbody>
+</table>

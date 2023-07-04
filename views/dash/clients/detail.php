@@ -21,8 +21,10 @@
             <p> <?= $user->address . ", " . $user->zip . " - " . $user->city ?></p>
         </div>
         <div class="col-12 modifiers">
-            <a href="/controllers/dash/clients/detailCtrl.php"><i id="modifyPic" class="fa-solid fa-pen"></i></a>
-            <a href="/controllers/dash//clients/detailCtrl.php?id=<?= $id ?>&delete=true"><i id="deletePatient" class="fa-solid fa-trash"></i></a>
+            <!-- <a href="/controllers/dash/clients/detailCtrl.php"> -->
+                <i id="modifyPic" class="fa-solid fa-pen"></i>
+            <!-- </a> -->
+            <a href="/controllers/dash/clients/deleteCtrl.php?id=<?= $id ?>&delete=true"><i id="deletePatient" class="fa-solid fa-trash"></i></a>
         </div>
     </div>
 </div>

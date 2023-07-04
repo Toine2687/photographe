@@ -24,8 +24,10 @@
         </div>
         <!-- // Boutons -->
         <div class="col-12 modifiers">
-            <a href="/controllers/dash/packs/detailCtrl.php"><i id="modifyPic" class="fa-solid fa-pen"></i></a>
-            <a href="/controllers/dash//packs/detailCtrl.php?id=<?= $id ?>&delete=true"><i id="deletePatient" class="fa-solid fa-trash"></i></a>
+            <!-- <a href="/controllers/dash/packs/detailCtrl.php?id=<?= $id ?>"> -->
+            <i id="modifyPic" class="fa-solid fa-pen"></i>
+        <!-- </a> -->
+            <a href="/controllers/dash/packs/deleteCtrl.php?id=<?= $id ?>&delete=true"><i class="fa-solid fa-trash"></i></a>
         </div>
     </div>
 </div>

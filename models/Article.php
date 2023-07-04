@@ -13,9 +13,8 @@ class Article
     private string $deleted_at;
 
 
-
     //constructor
-    public function __construct(string $title, string $description, string $content, string $main_picture, int $users_id, string $created_at='', string $updated_at='', string $deleted_at='')
+    public function __construct(string $title, string $description, string $content, string $main_picture, int $users_id, string $created_at = '', string $updated_at = '', string $deleted_at = '')
     {
         $this->title = $title;
         $this->main_picture = $main_picture;

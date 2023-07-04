@@ -51,38 +51,38 @@ try {
 
 
         //===================== Partner Firstname : Nettoyage et validation =======================
-        $partnerFirstname = trim(filter_input(INPUT_POST, 'partnerFirstname', FILTER_SANITIZE_SPECIAL_CHARS));
+        $partner_firstname = trim(filter_input(INPUT_POST, 'partner_firstname', FILTER_SANITIZE_SPECIAL_CHARS));
         // On vérifie que ce n'est pas vide
-        if (empty($partnerFirstname)) {
-            $error["partnerFirstname"] = "Vous devez entrer un nom!!";
+        if (empty($partner_firstname)) {
+            $error["partner_firstname"] = "Vous devez entrer un nom!!";
         } else { // Pour les champs obligatoires, on retourne une erreur
-            $isOk = filter_var($partnerFirstname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . NAME_PATTERN . '/')));
+            $isOk = filter_var($partner_firstname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . NAME_PATTERN . '/')));
             // Avec une regex (constante déclarée plus haut), on vérifie si c'est le format attendu 
             if (!$isOk) {
-                $error["partnerFirstname"] = "Le nom n'est pas au bon format!!";
+                $error["partner_firstname"] = "Le nom n'est pas au bon format!!";
             } else {
                 // Dans ce cas précis, on vérifie aussi la longueur de chaine (on aurait pu le faire aussi direct dans la regex)
-                if (strlen($partnerFirstname) <= 2 || strlen($partnerFirstname) >= 70) {
-                    $error["partnerFirstname"] = "La longueur du nom est incorrecte";
+                if (strlen($partner_firstname) <= 2 || strlen($partner_firstname) >= 70) {
+                    $error["partner_firstname"] = "La longueur du nom est incorrecte";
                 }
             }
         }
 
 
         //===================== Partner Lastname : Nettoyage et validation =======================
-        $partnerLastname = trim(filter_input(INPUT_POST, 'partnerLastname', FILTER_SANITIZE_SPECIAL_CHARS));
+        $partner_lastname = trim(filter_input(INPUT_POST, 'partner_lastname', FILTER_SANITIZE_SPECIAL_CHARS));
         // On vérifie que ce n'est pas vide
-        if (empty($partnerLastname)) {
-            $error["partnerLastname"] = "Vous devez entrer un nom!!";
+        if (empty($partner_lastname)) {
+            $error["partner_lastname"] = "Vous devez entrer un nom!!";
         } else { // Pour les champs obligatoires, on retourne une erreur
-            $isOk = filter_var($partnerLastname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . NAME_PATTERN . '/')));
+            $isOk = filter_var($partner_lastname, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => '/' . NAME_PATTERN . '/')));
             // Avec une regex (constante déclarée plus haut), on vérifie si c'est le format attendu 
             if (!$isOk) {
-                $error["partnerLastname"] = "Le nom n'est pas au bon format!!";
+                $error["partner_lastname"] = "Le nom n'est pas au bon format!!";
             } else {
                 // Dans ce cas précis, on vérifie aussi la longueur de chaine (on aurait pu le faire aussi direct dans la regex)
-                if (strlen($partnerLastname) <= 2 || strlen($partnerLastname) >= 70) {
-                    $error["partnerLastname"] = "La longueur du nom est incorrecte";
+                if (strlen($partner_lastname) <= 2 || strlen($partner_lastname) >= 70) {
+                    $error["partner_lastname"] = "La longueur du nom est incorrecte";
                 }
             }
         }
@@ -139,7 +139,7 @@ try {
 
 
         //===================== Role : Nettoyage  =======================
-        $role = trim(filter_input(INPUT_POST, 'role', FILTER_SANITIZE_NUMBER_INT));
+        $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_NUMBER_INT);
         if ($role != 1) {
             $role = 0;
         }
@@ -148,7 +148,7 @@ try {
         if (empty($error)) {
             if (User::isExist($mail) == NULL) {
                 
-                $user = new User($lastname, $firstname, $phone, $mail, $address, $zip, $city, $role, $partnerLastname, $partnerFirstname);
+                $user = new User($lastname, $firstname, $phone, $mail, $address, $zip, $city, $role, $partner_lastname, $partner_firstname);
                 var_dump($user);
                 $isAdded = $user->add();
                 if ($isAdded) {

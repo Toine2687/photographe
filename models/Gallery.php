@@ -10,15 +10,17 @@ class Gallery
     private string $created_at;
     private string $sent_at;
     private string $deleted_at;
+    private int $users_id;
 
 
     //constructor
-    public function __construct(string $title, string $shooting_date, string $shooting_location, string $main_picture)
+    public function __construct(string $title, string $shooting_date, string $shooting_location, string $main_picture, int $users_id)
     {
         $this->title = $title;
         $this->main_picture = $main_picture;
         $this->shooting_date = $shooting_date;
         $this->shooting_location = $shooting_location;
+        $this->users_id = $users_id;
     }
 
     public function set_id($id)
@@ -91,5 +93,112 @@ class Gallery
     public function get_deleted_at(): int
     {
         return $this->deleted_at;
+    }
+
+    //Méthodes
+
+    public function add()
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = 'INSERT INTO `galleries` (`title`,`shooting_date`, `shooting_location`,  `main_picture`, `users_id`) 
+        VALUES (:title, :shooting_date, :shooting_location, :main_picture, :users_id);';
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':title', $this->title);
+        $sth->bindValue(':shooting_date', $this->shooting_date);
+        $sth->bindValue(':shooting_location', $this->shooting_location);
+        $sth->bindValue(':main_picture', $this->main_picture);
+        $sth->bindValue(':users_id', $this->users_id);
+        return ($sth->execute());
+    }
+
+    public static function isExist($title)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "SELECT `title` FROM `galleries` WHERE `title`=:title";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':title', $title);
+        $sth->execute();
+        $fetch = $sth->fetch();
+        return $fetch;
+    }
+
+    public static function get($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "SELECT 
+        `users`.`firstname`, 
+        `users`.`lastname`,
+        `users`.`partner_firstname`,
+        `galleries`.`main_picture`,
+        `galleries`.`galleries_id`,
+        `galleries`.`shooting_date`, 
+        `galleries`.`shooting_location`,
+        `galleries`.`created_at`,
+        `galleries`.`title`,
+        `galleries`.`sent_at`, 
+        `galleries`.`deleted_at`  
+        FROM `galleries` 
+        INNER JOIN `users` 
+        ON `users`.`users_id` = `galleries`.`users_id` 
+        WHERE `galleries_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id);
+        $sth->execute();
+        $fetch = $sth->fetch();
+        return $fetch;
+    }
+
+    public static function getAllSimple()
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "SELECT `users`.`firstname`, 
+            `users`.`lastname`, 
+            `users`.`partner_firstname`,
+            `galleries`.`shooting_date`, 
+            `galleries`.`shooting_location`,
+            `galleries`.`galleries_id`,
+            `galleries`.`created_at`,
+            `galleries`.`title`,
+            `galleries`.`sent_at`, 
+            `galleries`.`deleted_at` 
+        FROM `galleries` 
+        INNER JOIN `users` 
+        ON `users`.`users_id` = `galleries`.`users_id`";
+        $sth = $db->query($sql);
+        $fetch = $sth->fetchAll();
+        return $fetch;
+    }
+
+    public function update($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "UPDATE `galleries` SET 
+        `shooting_date` = :shooting_date,
+        `shooting_location` = :shooting_location,
+        `title` = :title,
+        `main_picture` = :main_picture
+        WHERE `galleries`.`galleries_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':shooting_date', $this->shooting_date);
+        $sth->bindValue(':shooting_location', $this->shooting_location);
+        $sth->bindValue(':title', $this->title);
+        $sth->bindValue(':main_picture', $this->main_picture);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
+    public static function delete($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "DELETE FROM `galleries` WHERE `galleries_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id);
+        return $sth->execute();
     }
 }

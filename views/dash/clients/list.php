@@ -24,7 +24,7 @@
                 <td><a href="tel:<?= $user->phone ?>"><?= $user->phone ?></a> </td>
                 <td><a href="mailto:<?= $user->mail ?>"><?= $user->mail ?></a></td>
                 <td><a href="/controllers/dash/clients/detailCtrl.php?id=<?= $user->users_id?>"><i class="fa-solid fa-eye"></i></a></td>
-                <td><a href="/controllers/dash/clients/detailCtrl.php?id=<?= $user->users_id?>&delete=true"><i class="fa-solid fa-trash"></i></a></td>
+                <td><a href="/controllers/dash/clients/deleteCtrl.php?id=<?= $user->users_id?>&delete=true"><i class="fa-solid fa-trash"></i></a></td>
             </tr>
         <?php }
         ?>

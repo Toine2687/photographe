@@ -4,12 +4,15 @@
 <form method="post" class="col-10 text-center" enctype="multipart/form-data">
 
     <div class="d-flex mb-3 justify-content-between">
+
+        <!-- Titre -->
         <div class="col-5">
             <label for="title" class="form-label">Titre</label>
             <input type="text" name="title" id="title" class="form-control">
             <p><?= $error["title"] ?? '' ?></p>
-
         </div>
+
+        <!-- Image de couverture -->
         <div class="col-5">
             <label for="main_picture" class="form-label">Image de couverture</label>
             <input type="file" name="main_picture" id="main_picture" accept="image/*" class="form-control">
@@ -17,9 +20,42 @@
         </div>
     </div>
 
+    <!-- Description -->
     <div class="col-12 mb-3">
         <label for="description" class="form-label">Courte description</label>
         <textarea name="description" id="description" class="form-control"></textarea>
+    </div>
+
+    <div class="col-12 d-flex justify-content-between">
+        <!-- Selection de l'auteur -->
+        <div class="col-4 mb-3">
+            <label for="users_id" class="form-label">Auteur : </label>
+            <select name="users_id" id="users_id" class="form-select">
+                <option value="select" disabled selected>Selectionnez un auteur</option>
+                <?php
+                foreach ($users as $user) {
+                    // Uniquement les utilisateurs admins (role == 1)
+                    if ($user->role == 1) {
+                        echo '<option value="' . $user->users_id . '">' . $user->firstname . ' ' . $user->lastname . '</option>';
+                    }
+                }
+                ?>
+            </select>
+        </div>
+        <div class="col-6 mb-3">
+            <label for="users_id" class="form-label">Catégorie(s) : </label>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group d-flex flex-wrap">
+                <?php
+                foreach ($categories as $category) { ?>
+
+                    <input type="checkbox" class="btn-check" id="btncheck<?= $category->categories_id ?>" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btncheck<?= $category->categories_id ?>"><?= $category->title ?></label>
+
+                <?php
+                }
+                ?>
+            </div>
+        </div>
     </div>
 
     <div class="col-12 mb-3">
@@ -27,18 +63,6 @@
         <textarea name="content" id="content"></textarea>
     </div>
 
-    <label for="users_id" class="form-label">Auteur : </label>
-    <select name="users_id" id="users_id" class="form-select">
-        <option value="select" disabled selected>Selectionnez un auteur</option>
-        <?php
-        foreach ($users as $user) {
-            // Uniquement les utilisateurs admins (role == 1)
-            if ($user->role == 1) {
-                echo '<option value="' . $user->users_id . '">' . $user->firstname . ' ' . $user->lastname . '</option>';
-            }
-        }
-        ?>
-    </select>
     <?php echo "<p>" . ($error['id'] ?? '') . "</p>" ?>
 
     <p><?= $msg['add'] ?? '' ?></p>

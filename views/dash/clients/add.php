@@ -23,14 +23,14 @@
 
         <legend>Partenaire</legend>
         <div class="mb-3 col-10 col-md-5 text-center">
-            <label for="partnerFirstname" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="partnerFirstname" name="partnerFirstname" placeholder="Prénom" pattern="<?= NAME_PATTERN ?>">
-            <p><?= $error["partnerFirstname"] ?? '' ?></p>
+            <label for="partner_firstname" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="partner_firstname" name="partner_firstname" placeholder="Prénom" pattern="<?= NAME_PATTERN ?>">
+            <p><?= $error["partner_firstname"] ?? '' ?></p>
         </div>
         <div class=" mb-3 col-10 col-md-5 text-center">
-            <label for="partnerLastname" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="partnerLastname" name="partnerLastname" placeholder="Nom" pattern="<?= NAME_PATTERN ?>">
-            <p><?= $error["partnerLastname"] ?? '' ?></p>
+            <label for="partner_lastname" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="partner_lastname" name="partner_lastname" placeholder="Nom" pattern="<?= NAME_PATTERN ?>">
+            <p><?= $error["partner_lastname"] ?? '' ?></p>
         </div>
     </fieldset>
     <fieldset>

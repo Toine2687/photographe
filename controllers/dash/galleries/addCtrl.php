@@ -2,11 +2,17 @@
 $style = 'dash';
 $pageTitle = '- Dashboard | Ajout Galerie';
 
+require_once __DIR__ . '/../../../config/config.php';
+require_once __DIR__ . '/../../../models/Singleton.php';
+require_once __DIR__ . '/../../../models/Gallery.php';
+require_once __DIR__ . '/../../../models/User.php';
+
+$users = User::getAllSimple();
+
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // ---------------- VERIFICATIONS -------------------
-
 
         //===================== Titre : Nettoyage et validation =======================
         $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS));
@@ -19,23 +25,46 @@ try {
             }
         }
 
-        //===================== shootingDate : Nettoyage et validation =======================
-        $shootingDate = filter_input(INPUT_POST, 'shootingDate', FILTER_SANITIZE_NUMBER_INT);
-        if (!empty($shootingDate)) {
-            $isOk = filter_var($shootingDate, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/' . REGEX_DATE . '/']]);
+        //===================== Utilisateur : Nettoyage et validation =======================
+        $users_id = (filter_input(INPUT_POST, "users_id",  FILTER_SANITIZE_NUMBER_INT));
+        if (empty($users_id)) {
+            $error['users_id'] = 'Précisez l\'identité du client';
+        } else {
+            $isExist = User::get($users_id);
+            if (!$isExist) {
+                $error['users_id'] = 'Identité du client incohérente';
+            }
+        }
+
+        //===================== Titre : Nettoyage et validation =======================
+        $shooting_location = trim(filter_input(INPUT_POST, 'shooting_location', FILTER_SANITIZE_SPECIAL_CHARS));
+        // On vérifie que ce n'est pas vide
+        if (empty($shooting_location)) {
+            $error["shooting_location"] = "Vous devez entrer un lieu au minimum !";
+        } else {
+            if (strlen($shooting_location) <= 2 || strlen($shooting_location) >= 100) {
+                $error["shooting_location"] = "La longueur du nom du lieu est incorrecte";
+            }
+        }
+
+        //===================== shooting_date : Nettoyage et validation =======================
+        $shooting_date = filter_input(INPUT_POST, 'shooting_date', FILTER_SANITIZE_NUMBER_INT);
+        if (!empty($shooting_date)) {
+            $isOk = filter_var($shooting_date, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/' . REGEX_DATE . '/']]);
             if (!$isOk) {
-                $error["shootingDate"] = "La date entrée n'est pas valide!";
+                $error["shooting_date"] = "La date entrée n'est pas valide!";
             } else {
-                $shootingDateObj = new DateTime($birthdate);
-                $age = date('Y') - $shootingDateObj->format('Y');
+                $shooting_dateObj = new DateTime($birthdate);
+                $age = date('Y') - $shooting_dateObj->format('Y');
                 if ($age > 10 || $age < -5) {
-                    $error["shootingDate"] = "La date est trop éloignée";
+                    $error["shooting_date"] = "La date est trop lointaine";
                 }
             }
         }
 
         //===================== main_picture : Nettoyage et validation =======================
         if (isset($_FILES['main_picture'])) {
+            // var_dump('Coucou');
             $main_picture = $_FILES['main_picture'];
             if (!empty($main_picture['tmp_name'])) {
                 if ($main_picture['error'] > 0) {
@@ -46,11 +75,23 @@ try {
                     } else {
                         $extension = pathinfo($main_picture['name'], PATHINFO_EXTENSION);
                         $from = $main_picture['tmp_name'];
-                        $fileName = uniqid('img_') . '.' . $extension;
-                        $to = __DIR__ . '/..public/uploads/' . $fileName;
+                        $fileName = uniqid('img_gal_') . '.' . $extension;
+                        $to = '../../../public/uploads/galleries/' . $fileName;
                         move_uploaded_file($from, $to);
                     }
                 }
+            }
+        }
+        // ====================== ACTION ! ================
+        if (empty($error)) {
+            if (Gallery::isExist($title) == NULL) {
+                $gallery = new Gallery($title, $shooting_date, $shooting_location, $fileName, $users_id);
+                $isAdded = $gallery->add();
+                if ($isAdded) {
+                    $msg['add'] = '👍 Galerie ajoutée';
+                }
+            } else {
+                $msg['add'] = 'Erreur pendant l\'ajout';
             }
         }
     }

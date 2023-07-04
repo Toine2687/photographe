@@ -1,8 +1,6 @@
 <?php
 
 require_once __DIR__ . '/Singleton.php';
-
-
 class User
 {
     private int $users_id;
@@ -20,7 +18,7 @@ class User
     private string $city;
 
     //constructor
-    public function __construct(string $lastname, string $firstname, string $phone, string $mail,  string $address, int $zip, string $city, int $role = 0, string $partner_lastname = '', string $partner_firstname = '', string $password =NULL)
+    public function __construct(string $lastname, string $firstname, string $phone, string $mail,  string $address, int $zip, string $city, int $role = 0, string $partner_lastname = '', string $partner_firstname = '', string $password = NULL)
     {
         $this->lastname = $lastname;
         $this->firstname = $firstname;
@@ -34,7 +32,6 @@ class User
         $this->zip = $zip;
         $this->city = $city;
     }
-
 
     //gettters & setters
     public function set_id($id)
@@ -155,15 +152,16 @@ class User
     }
 
 
+    // =============== Méthodes ===============
     public function add()
     {
+        // $password = password_hash('azerty', PASSWORD_DEFAULT);
         $instance = Singleton::getInstance();
         $db = $instance->sConnect();
         $sql = "INSERT INTO `users` (`lastname`, `firstname`, `phone`, `mail`, `partner_lastname`, `partner_firstname`, `password` , `role`, `address`, `zip`, `city`) 
         VALUES (:lastname, :firstname, :phone, :mail, :partner_lastname, :partner_firstname, :password, :role, :address, :zip, :city);";
         $sth = $db->prepare($sql);
         $sth->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
-        // NB : à typer quand ce n'est pas un string
         $sth->bindValue(':firstname', $this->firstname);
         $sth->bindValue(':phone', $this->phone);
         $sth->bindValue(':mail', $this->mail);
@@ -201,6 +199,18 @@ class User
         return $fetch;
     }
 
+    public static function getByMail($mail)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "SELECT * FROM `users` WHERE `mail` = :mail;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':mail', $mail);
+        $sth->execute();
+        $fetch = $sth->fetch();
+        return $fetch;
+    }
+
     public static function getAllSimple()
     {
         $instance = Singleton::getInstance();
@@ -221,4 +231,39 @@ class User
         $sth->bindValue(':id', $id);
         return $sth->execute();
     }
+
+    public function update($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "UPDATE `users` SET 
+        `lastname` = :lastname,
+        `firstname` = :firstname,
+        `phone` = :phone,
+        `mail` = :mail,
+        `partner_lastname` = :partner_lastname,
+        `partner_firstname` = :partner_firstname,
+        `password` = :password,
+        `role` = :role,
+        `address` = :address,
+        `zip` = :zip,
+        `city` = :city
+        WHERE `users`.`users_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':lastname', $this->lastname);
+        $sth->bindValue(':firstname', $this->firstname);
+        $sth->bindValue(':phone', $this->phone);
+        $sth->bindValue(':mail', $this->mail);
+        $sth->bindValue(':partner_lastname', $this->partner_lastname);
+        $sth->bindValue(':partner_firstname', $this->partner_firstname);
+        $sth->bindValue(':password', $this->password);
+        $sth->bindValue(':role', $this->role, PDO::PARAM_INT);
+        $sth->bindValue(':address', $this->address);
+        $sth->bindValue(':zip', $this->zip, PDO::PARAM_INT);
+        $sth->bindValue(':city', $this->city);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
+
 }

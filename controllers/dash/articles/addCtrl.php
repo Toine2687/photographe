@@ -6,8 +6,10 @@ require_once __DIR__ . '/../../../config/config.php';
 require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/Article.php';
 require_once __DIR__ . '/../../../models/User.php';
+require_once __DIR__ . '/../../../models/Category.php';
 
 $users = User::getAllSimple();
+$categories = Category::getAllSimple();
 
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,7 +36,7 @@ try {
                     } else {
                         $extension = pathinfo($main_picture['name'], PATHINFO_EXTENSION);
                         $from = $main_picture['tmp_name'];
-                        $fileName = uniqid('img_') . '.' . $extension;
+                        $fileName = uniqid('img_art_') . '.' . $extension;
                         $to = '../../../public/uploads/articles/' . $fileName;
                         move_uploaded_file($from, $to);
                     }

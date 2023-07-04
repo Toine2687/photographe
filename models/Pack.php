@@ -144,4 +144,33 @@ class Pack
         $fetch = $sth->fetchAll();
         return $fetch;
     }
+
+    public function update($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "UPDATE `packs` SET 
+        `label` = :label,
+        `duration` = :duration,
+        `price` = :price,
+        `content` = :content
+        WHERE `packs`.`packs_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':label', $this->label);
+        $sth->bindValue(':duration', $this->duration, PDO::PARAM_INT);
+        $sth->bindValue(':price', $this->price, PDO::PARAM_INT);
+        $sth->bindValue(':content', $this->content);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
+    public static function delete($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "DELETE FROM `packs` WHERE `packs_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id);
+        return $sth->execute();
+    }
 }
