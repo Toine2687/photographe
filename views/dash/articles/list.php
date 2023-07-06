@@ -1,4 +1,7 @@
-<table class="table">
+<a href="/controllers/dash/articles/addCtrl.php" class="text-center fs-3 mb-3"><i class="fa-solid fa-plus"></i> Ajouter un article</a>
+
+
+<table class="table mt-3">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -24,7 +27,7 @@
                 <td><?= date('d m Y',  strtotime( $article->created_at))  ?></td>
                 <td><?= date('d m Y',  strtotime( $article->updated_at))  ?></td>
                 <td><a href="/controllers/dash/articles/detailCtrl.php?id=<?= $article->articles_id?>"><i class="fa-solid fa-eye"></i></a></td>
-                <td><a href="/controllers/dash/articles/detailCtrl.php?id=<?= $article->articles_id?>&delete=true"><i class="fa-solid fa-trash"></i></a></td>
+                <td><a href="/controllers/dash/articles/deleteCtrl.php?id=<?= $article->articles_id?>&delete=true"><i class="fa-solid fa-trash"></i></a></td>
             </tr>
         <?php }
         ?>

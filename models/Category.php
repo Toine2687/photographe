@@ -31,7 +31,6 @@ class Category
         return $this->title;
     }
 
-
     public function add()
     {
         $instance = Singleton::getInstance();
@@ -76,4 +75,13 @@ class Category
         return $fetch;
     }
 
+    public static function delete($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "DELETE FROM `categories` WHERE `categories_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id);
+        return $sth->execute();
+    }
 }

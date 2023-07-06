@@ -265,5 +265,20 @@ class User
         return $sth->execute();
     }
 
+    public static function checkUser()
+    {
+        if (empty($_SESSION['user'])) {
+            header('location: /controllers/user/user-loginCtrl.php');
+            die;
+        }
+    }
+
+    public static function checkAdmin(){
+        if ($_SESSION['user']->role != 1){
+            header('location: /controllers/user/user-loginCtrl.php');
+            die;
+        }
+    }
+
 
 }

@@ -7,7 +7,10 @@ require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/Article.php';
 require_once __DIR__ . '/../../../models/User.php';
 require_once __DIR__ . '/../../../models/Category.php';
+require_once __DIR__ . '/../../../models/Sort.php';
 
+User::checkUser();
+User::checkAdmin();
 $users = User::getAllSimple();
 $categories = Category::getAllSimple();
 
@@ -16,7 +19,14 @@ try {
 
         // ---------------- VERIFICATIONS -------------------
 
-        //===================== Nom de formule : Nettoyage  =======================
+        // ==================== Catégories : Nettoyage ================================
+        if (!empty($_POST['category'])) {
+            $selectedCat = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY);
+        }
+        // var_dump($selectedCat);
+        // die;
+
+        //===================== Titre de l'article : Nettoyage  =======================
         $title = trim(filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS));
         // On vérifie que ce n'est pas vide
         if (empty($title)) {
@@ -61,15 +71,34 @@ try {
             }
         }
 
+
+
         if (empty($error)) {
-            if (Article::isExist($title) == NULL) {
-                $article = new Article($title, $description, $content, $fileName, $users_id);
-                $isAdded = $article->add();
-                if ($isAdded) {
-                    $msg['add'] = '👍 Article ajouté';
+            try {
+                $instance = Singleton::getInstance();
+                $db = $instance->sConnect();
+                $db->beginTransaction();
+
+
+                if (Article::isExist($title) == NULL) {
+                    $article = new Article($title, $description, $content, $fileName, $users_id);
+                    $isAdded = $article->add();
+                    if ($isAdded) {
+                        $msg['add'] = '👍 Article ajouté';
+                    }
+                } else {
+                    $msg['add'] = 'Erreur pendant l\'ajout';
                 }
-            } else {
-                $msg['add'] = 'Erreur pendant l\'ajout';
+
+                $articles_id = $db->lastInsertId();
+
+                foreach ($selectedCat as $cat) {
+                    $sort = new Sort($articles_id, $cat);
+                    $isAdded = $sort->add();
+                }
+                $db->commit();
+            } catch (\PDOException $e) {
+                $db->rollBack();
             }
         }
     }

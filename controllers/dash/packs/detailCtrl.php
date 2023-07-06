@@ -5,6 +5,11 @@ $pageTitle = '- Détail Formule';
 require_once __DIR__ . '/../../../config/config.php';
 require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/Pack.php';
+require_once __DIR__ . '/../../../models/User.php';
+
+User::checkUser();
+User::checkAdmin();
+
 
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 

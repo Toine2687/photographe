@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../helpers/SessionFlash.php';
+require_once __DIR__ . '/../models/User.php';
 
 define("NAME_PATTERN", "^[A-Za-zéçèê'ù\-]{2,20}[ |\-]{0,1}[A-Za-zéèçê'ù\-]{2,20}$");
 define('REGEX_NO_NUMBER', "^[A-Za-z-éèêëàâäôöûüç' ]+$");
@@ -28,3 +30,5 @@ class PWD
         return $pwd;
     }
 }
+
+SessionFlash::start();

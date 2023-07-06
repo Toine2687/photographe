@@ -12,8 +12,8 @@
 
     <div class="userData col-4 align-self-start">
         <p><strong> Contact : </strong></p>
-        <p> Téléphone : <a href="tel:<?= $user->phone ?>"> <?= $user->phone ?></a></p>
-        <p>Mail: <a href="mailto:<?= $user->mail ?>"><?= $user->mail ?></a></p>
+        <p> Téléphone : <a class="fs-4" href="tel:<?= $user->phone ?>"> <?= $user->phone ?></a></p>
+        <p>Mail: <a class="fs-4" href="mailto:<?= $user->mail ?>"><?= $user->mail ?></a></p>
     </div>
     <div class="col-4 align-self-start">
         <div class="col-12">
@@ -22,9 +22,19 @@
         </div>
         <div class="col-12 modifiers">
             <!-- <a href="/controllers/dash/clients/detailCtrl.php"> -->
-                <i id="modifyPic" class="fa-solid fa-pen"></i>
+            <i id="modifyPic" class="fa-solid fa-pen"></i>
             <!-- </a> -->
-            <a href="/controllers/dash/clients/deleteCtrl.php?id=<?= $id ?>&delete=true"><i id="deletePatient" class="fa-solid fa-trash"></i></a>
+            <a  href="/controllers/dash/clients/deleteCtrl.php?id=<?= $id ?>&delete=true"><i id="deletePatient" class="fa-solid fa-trash"></i></a>
         </div>
+    </div>
+    <div class="col-4">
+        <p><strong> Formule souscrite : </strong></p>
+        <p><?php 
+        if ($pack != false) {
+            echo '<a class="fs-4" href="/controllers/dash/packs/detailCtrl.php?id='.$pack->packs_id.'">'.$pack->label.'</a>';}
+        else { 
+            echo 'Aucune';
+        }
+        ?></p>
     </div>
 </div>

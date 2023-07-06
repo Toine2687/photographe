@@ -7,6 +7,9 @@ require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/User.php';
 require_once __DIR__ . '/../../../models/Gallery.php';
 
+User::checkUser();
+User::checkAdmin();
+
 $users = User::getAllSimple();
 $galleries = Gallery::getAllSimple();
 

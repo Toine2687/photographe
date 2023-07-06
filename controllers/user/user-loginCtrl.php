@@ -27,11 +27,13 @@ try {
         // si admin => redirection vers dashboard
         if (!empty($password)) {
             if (password_verify($password, $user->password) && $user->role == 1) {
+                $_SESSION['user'] = $user;
                 header('location: /controllers/dash/dash-indexCtrl.php');
                 die;
             }
             // si user standard => redirection vers son espace client
             else if (password_verify($password, $user->password) && $user->role == 0) {
+                $_SESSION['user'] = $user;
                 header('location: /controllers/user/user-boardCtrl.php');
                 die;
                 // si les login/mdp ne correspondent pas => message
@@ -42,11 +44,7 @@ try {
             $error["login"] = "Mot de passe manquant";
         }
     }
-}
-
-// ---------NB : Créer une class SessionFlashs dans Helpers-----------
-
-catch (\Throwable $th) {
+} catch (\Throwable $th) {
     var_dump($th);
 }
 

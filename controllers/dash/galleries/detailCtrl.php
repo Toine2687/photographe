@@ -7,6 +7,9 @@ require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/User.php';
 require_once __DIR__ . '/../../../models/Gallery.php';
 
+User::checkUser();
+User::checkAdmin();
+
 $users = User::getAllSimple();
 
 $galleries_id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));

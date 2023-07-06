@@ -7,8 +7,12 @@ require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/User.php';
 require_once __DIR__ . '/../../../models/Article.php';
 
+User::checkUser();
+User::checkAdmin();
+
 $users = User::getAllSimple();
 $articles = Article::getAllSimple();
+
 
 include __DIR__ . '/../../../views/dash/dash-header.php';
 include __DIR__ . '/../../../views/dash/articles/list.php';

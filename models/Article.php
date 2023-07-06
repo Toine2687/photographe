@@ -164,4 +164,33 @@ class Article
         $fetch = $sth->fetchAll();
         return $fetch;
     }
+
+    public function update($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "UPDATE `articles` SET 
+        `description` = :description,
+        `content` = :content,
+        `title` = :title,
+        `main_picture` = :main_picture
+        WHERE `articles`.`articles_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':description', $this->description);
+        $sth->bindValue(':content', $this->content);
+        $sth->bindValue(':title', $this->title);
+        $sth->bindValue(':main_picture', $this->main_picture);
+        $sth->bindValue(':id', $id, PDO::PARAM_INT);
+        return $sth->execute();
+    }
+
+    public static function delete($id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "DELETE FROM `articles` WHERE `articles_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $id);
+        return $sth->execute();
+    }
 }

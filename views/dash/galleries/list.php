@@ -1,4 +1,7 @@
-<table class="table">
+<a href="/controllers/dash/galleries/addCtrl.php" class="text-center fs-3 mb-3"><i class="fa-solid fa-plus"></i> Ajouter une galerie</a>
+
+
+<table class="table mt-3">
     <thead>
         <tr>
             <th scope="col">#</th>

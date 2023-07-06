@@ -5,6 +5,11 @@ $pageTitle = '- Dashboard - Ajout de Formule';
 require_once __DIR__ . '/../../../config/config.php';
 require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/Pack.php';
+require_once __DIR__ . '/../../../models/User.php';
+
+User::checkUser();
+User::checkAdmin();
+
 
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

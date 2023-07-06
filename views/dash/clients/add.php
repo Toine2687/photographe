@@ -66,6 +66,7 @@
                 <p><?= $error["zip"] ?? '' ?></p>
 
             </div>
+
             <div class="mb-3 col-10 col-md-2 text-center">
                 <label for="city" class="form-label">Ville</label>
                 <input type="text" class="form-control" id="city" name="city" placeholder="Amiens">
@@ -73,16 +74,28 @@
 
             </div>
 
+            <!-- ---------------- Formule éventuelle ------------------- -->
+            <div class="col-5 mb-3">
+                <label for="packs" class="form-label">Formule souscrite ?</label>
+                <select class="form-control" name="packs" id="packs">
+                    <option value="0" selected disabled> Selectionner une formule (facultatif) </option>
+                    <?php
+                    foreach ($packs as $pack) { ?>
+                        <option value="<?= $pack->packs_id ?>"><?= $pack->label ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
 
             <!-- ---------------- En faire un admin ? ---------------- -->
 
-            <div class="formInputLine" id="adminCheckbox">
+            <div class="formInputLine mb-3" id="adminCheckbox">
                 <label for="role" class="form-label">Faire de cet utilisateur un admin</label>
                 <input class="form-check-input" type="checkbox" name="role" id="role" value="1">
             </div>
         </div>
     </fieldset>
-
 
     <!-- ---------------- Validation ---------------- -->
 

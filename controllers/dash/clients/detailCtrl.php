@@ -5,6 +5,12 @@ $pageTitle = '- Détail Client';
 require_once __DIR__ . '/../../../config/config.php';
 require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/User.php';
+require_once __DIR__ . '/../../../models/User_Pack.php';
+require_once __DIR__ . '/../../../models/Pack.php';
+
+User::checkUser();
+User::checkAdmin();
+
 
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 // Récupération du client cliqué sur list
@@ -16,6 +22,13 @@ try {
 } catch (\Throwable $th) {
     var_dump($th);
 }
+
+$pack = User_Pack::getByClient($id);
+
+// var_dump($pack);
+// die;
+
+// ================================================UPDATE=========================================
 
 // Vérifications avant update
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

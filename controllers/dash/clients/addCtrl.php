@@ -5,6 +5,13 @@ $pageTitle = '- Dashboard | Ajout Clients';
 require_once __DIR__ . '/../../../config/config.php';
 require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/User.php';
+require_once __DIR__ . '/../../../models/Pack.php';
+require_once __DIR__ . '/../../../models/User_Pack.php';
+
+User::checkUser();
+User::checkAdmin();
+
+$packs = Pack::getAllSimple();
 
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -146,16 +153,35 @@ try {
 
 
         if (empty($error)) {
-            if (User::isExist($mail) == NULL) {
-                
-                $user = new User($lastname, $firstname, $phone, $mail, $address, $zip, $city, $role, $partner_lastname, $partner_firstname);
-                var_dump($user);
-                $isAdded = $user->add();
-                if ($isAdded) {
-                    $msg['add'] = '👍 Client ajouté';
+            try {
+                $instance = Singleton::getInstance();
+                $db = $instance->sConnect();
+                $db->beginTransaction();
+
+
+                if (User::isExist($mail) == NULL) {
+
+                    $user = new User($lastname, $firstname, $phone, $mail, $address, $zip, $city, $role, $partner_lastname, $partner_firstname);
+                    $isAdded = $user->add();
+                    if ($isAdded) {
+                        $msg['add'] = '👍 Client ajouté';
+                    }
+                } else {
+                    $msg['add'] = 'Erreur pendant l\'ajout';
                 }
-            } else {
-                $msg['add'] = 'Erreur pendant l\'ajout';
+
+                $users_id = $db->lastInsertId();
+
+                // Si une formule est sélectionnée
+                if ($_POST['packs'] != 0) {
+                    $selectedPack = trim(filter_input(INPUT_POST, 'packs', FILTER_SANITIZE_NUMBER_INT));
+                    // Associer la formule et le client
+                    $user_pack = new User_Pack($users_id, $selectedPack);
+                    $isAdded = $user_pack->add();
+                }
+                $db->commit();
+            } catch (\PDOException $e) {
+                $db->rollBack();
             }
         }
     }

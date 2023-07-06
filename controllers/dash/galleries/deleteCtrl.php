@@ -3,6 +3,11 @@
 require_once __DIR__ . '/../../../config/config.php';
 require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/Gallery.php';
+require_once __DIR__ . '/../../../models/User.php';
+
+
+User::checkUser();
+User::checkAdmin();
 
 // Récupération de l'id en paramètre d'URL
 $id = intval(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));

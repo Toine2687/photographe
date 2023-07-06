@@ -14,8 +14,10 @@
         <p><strong> Dernière MAJ : </strong> <?= date('d m Y',  strtotime($article->updated_at)) ?></p>
         <!-- // Boutons -->
         <div class="col-12 modifiers ">
-            <a href="/controllers/dash/packs/detailCtrl.php"><i id="modifyPic" class="fa-solid fa-pen"></i></a>
-            <a href="/controllers/dash//packs/detailCtrl.php?id=<?= $id ?>&delete=true"><i id="deletePatient" class="fa-solid fa-trash"></i></a>
+            <!-- <a href="/controllers/dash/articles/detailCtrl.php?id=<?= $id ?>"> -->
+            <i id="modifyPic" class="fa-solid fa-pen"></i>
+            <!-- </a> -->
+            <a href="/controllers/dash//articles/deleteCtrl.php?id=<?= $id ?>&delete=true"><i id="deletePatient" class="fa-solid fa-trash"></i></a>
         </div>
     </div>
     <!-- Article -->
