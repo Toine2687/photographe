@@ -1,6 +1,10 @@
-<section class="firstSection" id="userBoardHero">
-    <h1>Marie & Simon</h1>
-    <h2>30 Juin 2022</h2>
+<section class="firstSection" id="userBoardHero" data-background='/public/uploads/galleries/<?= $id . '/' . $gallery->main_picture ?>'>
+    <h1><?= $user->firstname ?> &
+        <?php if ($user->partner_firstname != NULL | $user->partner_firstname != '') {
+            echo  $user->partner_firstname;
+        } ?>
+    </h1>
+    <h2 class="fs-3"><?= dateToFrench($gallery->shooting_date, 'j F Y') ?></h2>
 </section>
 
 <section class="container" id="userBoardOptions">
@@ -19,10 +23,11 @@
     </div>
 </section>
 
-<section class="gallery">
-    <?php
-    foreach (glob("*.txt") as $filename) {
-        echo "$filename occupe " . filesize($filename) . "\n";
-    }
-    ?>
-</section>
+<!-- <section class="gallery"> -->
+<?php
+// foreach (glob("*.txt") as $filename) {
+// echo "$filename occupe " . filesize($filename) . "\n";
+// }
+?>
+<!-- </section> -->
+<script src="/public/assets/js/user-Board.js"></script>

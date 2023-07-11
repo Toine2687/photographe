@@ -139,13 +139,40 @@ class Gallery
         `galleries`.`created_at`,
         `galleries`.`title`,
         `galleries`.`sent_at`, 
-        `galleries`.`deleted_at`  
+        `galleries`.`deleted_at`,
+        `galleries`.`users_id`
         FROM `galleries` 
         INNER JOIN `users` 
         ON `users`.`users_id` = `galleries`.`users_id` 
         WHERE `galleries_id` = :id;";
         $sth = $db->prepare($sql);
         $sth->bindValue(':id', $id);
+        $sth->execute();
+        $fetch = $sth->fetch();
+        return $fetch;
+    }
+
+    /**
+     * @param mixed $users_id
+     * 
+     * @return [bool
+     * Permet de récupérer une galerie en fonction de l'id de l'utilisateur]
+     */
+    public static function getByUser($users_id)
+    {
+        $instance = Singleton::getInstance();
+        $db = $instance->sConnect();
+        $sql = "SELECT `galleries`.`main_picture`,
+        `galleries`.`galleries_id`,
+        `galleries`.`shooting_date`, 
+        `galleries`.`shooting_location`,
+        `galleries`.`title`
+        FROM `galleries`
+        INNER JOIN `users`
+        ON `users`.`users_id` = `galleries`.`users_id` 
+        WHERE `users`.`users_id` = :id;";
+        $sth = $db->prepare($sql);
+        $sth->bindValue(':id', $users_id);
         $sth->execute();
         $fetch = $sth->fetch();
         return $fetch;

@@ -6,10 +6,6 @@ p, button {
   background-image: url(/public/assets/img/photo/userLogin-photographe-mariage-oise.webp);
 }
 
-#userBoardHero {
-  background-image: url(/public/assets/img/photo/userBoardHero-photographe-mariage-hauts-de-france.jpg);
-}
-
 .firstSection {
   margin-top: 22vh;
   height: 90vh;

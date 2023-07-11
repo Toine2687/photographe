@@ -1,4 +1,14 @@
+<?php
+    if(SessionFlash::checkMessage()){
+    ?>
+        <div class="alert alert-primary" role="alert">
+            <strong><?=SessionFlash::getMessage()?></strong>
+        </div>
+        
+    <?php } ?>
+
 <script src="https://cdn.tiny.cloud/1/x4fxygiud6rog5mec98fookfmqm6p8ukxhotmm9iepncon4r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="/public/assets/js/tinyMce.js"></script>
 
 
 <form method="post" class="col-10 text-center" enctype="multipart/form-data">

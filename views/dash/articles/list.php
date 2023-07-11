@@ -1,3 +1,12 @@
+<?php
+    if(SessionFlash::checkMessage()){
+    ?>
+        <div class="alert alert-primary" role="alert">
+            <strong><?=SessionFlash::getMessage()?></strong>
+        </div>
+        
+    <?php } ?>
+
 <a href="/controllers/dash/articles/addCtrl.php" class="text-center fs-3 mb-3"><i class="fa-solid fa-plus"></i> Ajouter un article</a>
 
 

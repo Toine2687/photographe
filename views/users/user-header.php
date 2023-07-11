@@ -14,6 +14,17 @@
     <link rel="stylesheet" href="/public/assets/css/style.css">
     <link rel="stylesheet" href="/public/assets/css/contact.css">
     <link rel="stylesheet" href="/public/assets/css/user.css">
+    <!-- <link rel="stylesheet" href="/public/assets/css/GridOverflow3D.css"> -->
+
+    <!-- CSS styles of Grid Overflow - only file that is needed to import -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/GridOverflow3D.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/story-show-gallery@3/dist/ssg.min.css" />
+
+    <?php
+    if (isset($style)) {
+        echo '<link rel="stylesheet" href="/public/assets/css/' . $style . '.css">';
+    }
+    ?>
 </head>
 
 <body>

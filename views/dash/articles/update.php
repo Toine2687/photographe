@@ -1,4 +1,6 @@
 <script src="https://cdn.tiny.cloud/1/x4fxygiud6rog5mec98fookfmqm6p8ukxhotmm9iepncon4r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="/public/assets/js/tinyMce.js"></script>
+
 
 <div id="update" class="hidden">
     <div class="col-12 my-5">

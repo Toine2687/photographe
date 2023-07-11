@@ -1,5 +1,6 @@
+
 <p class="text-center fw-bold"><?= $msg['add'] ?? '' ?></p>
-<form action="" method="post" class="d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
+<form action="" method="post" class="d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data" id="addGalForm">
     <div class="row justify-content-center">
 
         <div class="mb-3 col-5 col-md-5 text-center">
@@ -43,7 +44,7 @@
             <p><?= $error["main_picture"] ?? ''  ?></p>
         </div>
 
-        <button type="submit" class="btn btn-secondary col-5 ">Valider</button>
+        <button type="submit" class="btn btn-secondary col-5 ">Etape suivante</button>
 
     </div>
 </form>

@@ -7,6 +7,7 @@ require_once __DIR__ . '/../../../models/Singleton.php';
 require_once __DIR__ . '/../../../models/Gallery.php';
 require_once __DIR__ . '/../../../models/User.php';
 
+
 User::checkUser();
 User::checkAdmin();
 
@@ -14,7 +15,6 @@ $users = User::getAllSimple();
 
 try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
         // ---------------- VERIFICATIONS -------------------
 
         //===================== Titre : Nettoyage et validation =======================
@@ -57,7 +57,7 @@ try {
             if (!$isOk) {
                 $error["shooting_date"] = "La date entrée n'est pas valide!";
             } else {
-                $shooting_dateObj = new DateTime($birthdate);
+                $shooting_dateObj = new DateTime($shooting_date);
                 $age = date('Y') - $shooting_dateObj->format('Y');
                 if ($age > 10 || $age < -5) {
                     $error["shooting_date"] = "La date est trop lointaine";
@@ -78,23 +78,32 @@ try {
                     } else {
                         $extension = pathinfo($main_picture['name'], PATHINFO_EXTENSION);
                         $from = $main_picture['tmp_name'];
-                        $fileName = uniqid('img_gal_') . '.' . $extension;
-                        $to = '../../../public/uploads/galleries/' . $fileName;
+                        $fileName = uniqid('0_main_') . '.' . $extension;
+                        $to = '../../../public/uploads/galleries/' . $users_id . '/' . $fileName;
                         move_uploaded_file($from, $to);
                     }
                 }
             }
         }
+
         // ====================== ACTION ! ================
         if (empty($error)) {
             if (Gallery::isExist($title) == NULL) {
                 $gallery = new Gallery($title, $shooting_date, $shooting_location, $fileName, $users_id);
                 $isAdded = $gallery->add();
                 if ($isAdded) {
+
+                    $instance = Singleton::getInstance();
+                    $db = $instance->sConnect();
+                    $id = $db->lastInsertId();
+
+                    header("location: /controllers/dash/galleries/fillCtrl.php?id=$id");
+                    die;
+
                     $msg['add'] = '👍 Galerie ajoutée';
+                } else {
+                    $msg['add'] = 'Erreur pendant l\'ajout';
                 }
-            } else {
-                $msg['add'] = 'Erreur pendant l\'ajout';
             }
         }
     }

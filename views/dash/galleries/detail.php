@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-5 mb-3">
-        <img src="/public/uploads/galleries/<?= $gallery->main_picture ?>" class="object-fit-scale rounded rounded-5 w-100">
+        <img src="/public/uploads/galleries/<?= $gallery->users_id.'/'. $gallery->main_picture ?>" class="object-fit-scale rounded rounded-5 w-100">
     </div>
     <!-- // Informations -->
     <div class="col-1"></div>
@@ -18,7 +18,7 @@
         <p><strong> Shootée le : </strong> <?= date('d m Y',  strtotime($gallery->created_at)) ?></p>
         <p><strong> Envoyée le : </strong> <?= ($gallery->sent_at != NULL) ? date('d m Y',  strtotime($gallery->sent_at)) : 'A envoyer'; ?></p>
         <!-- // Boutons -->
-        <a href="/controllers/dash/galleries/detailCtrl.php?id=<?= $id ?>"><i id="modifyPic" class="fa-solid fa-pen"></i></a>
-        <a href="/controllers/dash/galleries/deleteCtrl.php?id=<?= $id ?>&delete=true"><i class="fa-solid fa-trash"></i></a>
+        <a href="/controllers/dash/galleries/detailCtrl.php?id=<?= $galleries_id ?>"><i  class="fa-solid fa-pen"></i></a>
+        <a href="/controllers/dash/galleries/deleteCtrl.php?id=<?= $galleries_id ?>&delete=true"><i class="fa-solid fa-trash"></i></a>
     </div>
 </div>

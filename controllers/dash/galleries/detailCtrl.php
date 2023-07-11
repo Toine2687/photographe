@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     } else {
                         $extension = pathinfo($main_picture['name'], PATHINFO_EXTENSION);
                         $from = $main_picture['tmp_name'];
-                        $fileName = uniqid('img_gal_') . '.' . $extension;
-                        $to = '../../../public/uploads/galleries/' . $fileName;
+                        $fileName = uniqid('img_mp_') . '.' . $extension;
+                        $to = '../../../public/uploads/galleries/' . $users_id . '/' . $fileName;
                         move_uploaded_file($from, $to);
                     }
                 }
